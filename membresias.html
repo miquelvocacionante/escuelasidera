@@ -5,235 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elige tu camino</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             background: #f8f9fa;
             padding: 20px;
         }
-
         .pricing {
-            max-width: 1400px;
-            margin: 0 auto;
-            background: #fff;
-            border-radius: 20px;
-            padding: 40px 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            max-width: 1400px; margin: 0 auto; background: #fff; border-radius: 20px;
+            padding: 40px 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.08);
         }
-
         .pricing h2 {
-            text-align: center;
-            font-size: clamp(24px, 5vw, 32px);
-            margin-bottom: 10px;
-            color: #222;
+            text-align: center; font-size: clamp(24px, 5vw, 32px);
+            margin-bottom: 10px; color: #222;
         }
-
         .pricing .subtitle {
-            text-align: center;
-            color: #666;
-            margin-bottom: 20px;
-            font-size: clamp(14px, 3vw, 15px);
-            line-height: 1.5;
+            text-align: center; color: #666; margin-bottom: 30px;
+            font-size: clamp(14px, 3vw, 15px); line-height: 1.5;
         }
-
-        .pricing .subtitle b {
-            color: #ff5722;
-        }
-
-        .astrology-button {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
+        .pricing .subtitle b { color: #ff5722; }
+        .astrology-button { text-align: center; margin-bottom: 20px; }
         .btn-astrology {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 25px;
-            font-size: clamp(12px, 2.5vw, 14px);
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2); color: white; border: none;
+            padding: 12px 30px; border-radius: 25px; font-size: clamp(12px, 2.5vw, 14px);
+            font-weight: 600; cursor: pointer; transition: all 0.3s ease;
+            text-decoration: none; display: inline-block;
         }
-
-        .btn-astrology:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
-        }
-
-        .switch {
-            display: flex;
-            justify-content: center;
-            margin: 0 auto 30px;
-            width: clamp(200px, 40vw, 240px);
-            background: #f2f2f2;
-            border-radius: 999px;
-            cursor: pointer;
-            padding: 4px;
-        }
-
-        .switch span {
-            flex: 1;
-            text-align: center;
-            padding: 10px 0;
-            border-radius: 999px;
-            transition: all 0.3s ease;
-            font-size: clamp(12px, 2.5vw, 14px);
-            font-weight: 500;
-            color: #666;
-        }
-
-        .switch .active {
-            background: #fff;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-            color: #222;
-        }
-
-        .quick-comparison {
-            margin-bottom: 30px;
-            max-width: 100%;
-            overflow-x: auto; /* Permite scroll horizontal solo si es necesario */
-        }
-
-        .comparison-wrapper {
-            min-width: 800px; /* Ancho mínimo para mantener la legibilidad de la tabla */
-        }
-
-        .comparison-grid {
-            display: grid;
-            grid-template-columns: minmax(150px, 1.5fr) repeat(4, 1fr);
-            gap: 1px;
-            background: #e5e7eb;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
-        .cell {
-            background: #fff;
-            padding: 10px 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            font-size: clamp(11px, 2.2vw, 12px);
-        }
-
-        .cell.feature {
-            justify-content: flex-start;
-            text-align: left;
-            font-weight: 500;
-            color: #333;
-            background: #f8f9fa;
-            padding-left: 10px;
-            font-size: clamp(10px, 2vw, 11px);
-        }
+        .btn-astrology:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3); }
         
-        .feature-text {
-            flex-grow: 1;
-        }
-
-        .cell.header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            flex-direction: column;
-            padding: 15px 6px;
-            position: sticky;
-            top: 0;
-            z-index: 20;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        
-        .offer-extra-text {
-            font-weight: normal;
-            opacity: 0.9;
-            display: block;
-            margin-top: 4px;
-        }
-
-        .plan-name {
-            font-size: clamp(12px, 2.3vw, 14px);
-            font-weight: 600;
-            margin-bottom: 2px;
-        }
-
-        .plan-subtitle {
-            font-size: clamp(8px, 1.6vw, 9px);
-            opacity: 0.9;
-            margin-bottom: 8px;
-            line-height: 1.3;
-            padding: 0 4px;
-        }
-
-        .price-info {
-            margin-top: 8px;
-            padding-top: 8px;
-            border-top: 1px solid rgba(255,255,255,0.2);
-            width: 100%;
-        }
-
-        .price-monthly {
-            font-size: clamp(14px, 2.8vw, 16px);
-            font-weight: 700;
-            margin-bottom: 4px;
-            display: none;
-        }
-
-        .price-yearly {
-            background: rgba(255,255,255,0.2);
-            padding: 4px 6px;
-            border-radius: 6px;
-            font-size: clamp(10px, 2vw, 11px);
-            font-weight: 600;
-            display: block;
-        }
-
-        .price-monthly.show { display: block; }
-        .price-yearly.show { display: block; }
-
-        .cell.section-header {
-            grid-column: 1 / -1;
-            background: linear-gradient(135deg, #e5e7eb, #d1d5db);
-            font-weight: 700;
-            color: #374151;
-            text-transform: uppercase;
-            font-size: clamp(10px, 1.8vw, 11px);
-            letter-spacing: 0.5px;
-            padding: 8px 10px;
-        }
-
-        .check { color: #10b981; font-size: clamp(16px, 2.8vw, 18px); }
-        .cross { color: #ef4444; font-size: clamp(14px, 2.5vw, 16px); opacity: 0.3; }
-        .value { color: #6366f1; font-weight: 600; font-size: clamp(10px, 2vw, 12px); }
-        .special-value { color: #f59e0b; font-weight: 600; font-size: clamp(9px, 1.8vw, 11px); }
-
-        .btn-inscription {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white; border: none; padding: 6px 12px; border-radius: 10px;
-            font-size: clamp(10px, 2vw, 11px); font-weight: 600; cursor: pointer;
-            transition: all 0.3s ease; text-decoration: none;
-        }
-        .btn-inscription:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(102, 126, 234, 0.3); }
-        
-        .tooltip-container {
-            position: relative;
-            display: inline-flex;
-            align-items: center;
-            margin-left: 5px;
-        }
+        .tooltip-container { position: relative; display: inline-flex; align-items: center; margin-left: auto; padding-left: 8px;}
         .tooltip-icon {
             display: inline-flex; justify-content: center; align-items: center;
             width: 16px; height: 16px; border-radius: 50%; background-color: #e5e7eb;
             color: #374151; font-weight: bold; font-size: 10px; cursor: help;
-            border: 1px solid #d1d5db;
+            border: 1px solid #d1d5db; flex-shrink: 0;
         }
         .tooltip-text {
             visibility: hidden; width: 220px; background-color: #333; color: #fff;
@@ -249,25 +54,14 @@
         .tooltip-container:hover .tooltip-text, .tooltip-icon:focus + .tooltip-text { visibility: visible; opacity: 1; }
         .tooltip-icon:focus { outline: none; box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.5); }
 
-        .expand-button { text-align: center; margin: 25px 0; }
-        .btn-expand {
-            background: linear-gradient(135deg, #667eea, #764ba2); color: white; border: none;
-            padding: 12px 30px; border-radius: 25px; font-size: clamp(12px, 2.5vw, 14px);
-            font-weight: 600; cursor: pointer; transition: all 0.3s ease;
-        }
-        .btn-expand:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3); }
-        .btn-expand.active { background: linear-gradient(135deg, #ef4444, #dc2626); }
-
-        .detailed-comparison { display: none; margin-top: 30px; }
-        .detailed-comparison.show { display: block; }
-
+        .plan-cards-container { margin-top: 30px; }
         .plan-cards { display: grid; gap: 20px; margin-bottom: 30px; }
         @media (min-width: 768px) and (max-width: 1199px) { .plan-cards { grid-template-columns: repeat(2, 1fr); } }
         @media (min-width: 1200px) { .plan-cards { grid-template-columns: repeat(4, 1fr); } }
 
         .plan-card {
             background: #fff; border: 2px solid #e5e7eb; border-radius: 16px;
-            overflow: hidden; transition: all 0.3s ease; display: flex; flex-direction: column;
+            transition: all 0.3s ease; display: flex; flex-direction: column;
         }
         .plan-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
         .plan-card.cyclus { border-color: #667eea; }
@@ -279,16 +73,13 @@
         .card-header h3 { font-size: clamp(18px, 4vw, 20px); margin-bottom: 5px; }
         .card-subtitle { color: #666; font-size: clamp(10px, 2.2vw, 11px); margin-bottom: 15px; font-style: italic; }
         .card-prices { margin-top: 15px; }
+        
         .price-item { padding: 8px 0; }
-        .price-item.monthly { display: none; }
-        .price-item.yearly { display: block; }
-        .price-item.monthly.show { display: block; }
-        .price-item.yearly.show { display: block; }
-        .price-label { font-size: clamp(10px, 2.2vw, 12px); color: #666; margin-bottom: 4px; }
+        .price-item.monthly { border-bottom: 1px dashed #e5e7eb; margin-bottom: 8px; }
+        .price-label { font-size: clamp(10px, 2.2vw, 12px); color: #666; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
         .price-value { font-size: clamp(20px, 4vw, 24px); font-weight: 700; color: #333; }
-        .price-value small { font-size: clamp(10px, 2.2vw, 12px); color: #666; font-weight: normal; }
-        .price-item .offer-extra-text { font-size: 11px; color: #666; margin-top: 4px; font-weight: normal; }
-
+        .price-value small { font-size: clamp(12px, 2.2vw, 14px); color: #666; font-weight: normal; }
+        .offer-extra-text { font-size: 11px; color: #666; margin-top: 4px; font-weight: normal; }
         .special-offer {
             background: #fef3c7; color: #92400e; padding: 10px 15px; margin: 15px -20px -20px;
             font-size: clamp(10px, 2.2vw, 11px); font-weight: 600; text-align: center;
@@ -297,17 +88,18 @@
         .card-body { padding: 20px; flex-grow: 1; }
         .feature-section { margin-bottom: 20px; }
         .feature-section-title {
-            font-size: clamp(10px, 2.2vw, 12px); font-weight: 700; color: #6366f1;
+            font-size: clamp(11px, 2.2vw, 12px); font-weight: 700; color: #6366f1;
             margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px;
         }
         .feature-list { list-style: none; margin: 0; padding: 0; }
-        .feature-list li { padding: 6px 0; font-size: clamp(11px, 2.2vw, 12px); display: flex; align-items: center; }
-        .feature-icon { margin-right: 8px; flex-shrink: 0; }
+        .feature-list li { padding: 8px 0; font-size: clamp(12px, 2.2vw, 13px); display: flex; align-items: center; border-bottom: 1px solid #f3f4f6;}
+        .feature-list li:last-child { border-bottom: none; }
+        .feature-text { flex-grow: 1; }
+        .feature-icon { margin-right: 10px; flex-shrink: 0; font-size: 16px; }
         .feature-list .included { color: #10b981; }
-        .feature-list .not-included { color: #ef4444; opacity: 0.3; }
+        .feature-list .not-included { color: #ef4444; opacity: 0.6; }
         .feature-list .highlight { font-weight: 600; color: #6366f1; }
-        .feature-list li .tooltip-container { margin-left: auto; padding-left: 5px; }
-
+        
         .card-footer { padding: 20px; padding-top: 0; }
         .btn-cta {
             display: block; width: 100%; padding: 12px; border: none; border-radius: 10px;
@@ -316,14 +108,6 @@
             background: linear-gradient(135deg, #667eea, #764ba2);
         }
         .btn-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
-
-        @media (max-width: 820px) {
-            .pricing { padding: 20px 10px; }
-            .comparison-wrapper { min-width: 100%; }
-            .comparison-grid { grid-template-columns: minmax(120px, 1.5fr) repeat(4, minmax(65px, 1fr)); }
-            .cell { padding: 8px 4px; font-size: clamp(9px, 2vw, 10px); }
-            .cell.feature { padding-left: 6px; font-size: clamp(8px, 1.8vw, 9px); }
-        }
     </style>
 </head>
 <body>
@@ -332,309 +116,131 @@
     <div class="astrology-button">
         <a href="https://vocacionante.com/agenda" target="_blank" class="btn-astrology">Reservar asesoría astrológica</a>
     </div>
-    <p class="subtitle">Ofertas especiales hasta el <b>1 de noviembre</b><br><b>2 años al precio de 1</b></p>
+    <p class="subtitle">Descubre las ofertas especiales hasta el <b>1 de noviembre</b><br><b>2 años al precio de 1</b></p>
 
-    <div class="switch" id="switch">
-        <span data-mode="monthly">Mensual</span>
-        <span data-mode="yearly" class="active">Oferta 2 Años</span>
-    </div>
-
-    <div class="quick-comparison">
-        <div class="comparison-wrapper">
-            <div class="comparison-grid">
-                <!-- HEADERS -->
-                <div class="cell header" style="background: #fff;"></div>
-                <div class="cell header">
-                    <div class="plan-name">Membresía Cyclus</div>
-                    <div class="plan-subtitle">Para conectarte con los tránsitos y los ritos astrológicos</div>
-                    <div class="price-info">
-                        <div class="price-monthly">40€/mes</div>
-                        <div class="price-yearly show">OFERTA: 440€/24 meses <span class="offer-extra-text">+ sesión de oráculo mensual + regalo sorpresa</span></div>
-                    </div>
-                </div>
-                <div class="cell header">
-                    <div class="plan-name">Conecta con tu Vocación</div>
-                    <div class="plan-subtitle">Para conocer en profundidad tu carta natal</div>
-                    <div class="price-info">
-                        <div class="price-monthly">80€/mes</div>
-                        <div class="price-yearly show">OFERTA: 990€/24 meses <span class="offer-extra-text">+ sesión de oráculo mensual + regalo sorpresa</span></div>
-                    </div>
-                </div>
-                <div class="cell header">
-                    <div class="plan-name">Guía Vocacional</div>
-                    <div class="plan-subtitle">Para ser un Guía Astrológico Profesional</div>
-                    <div class="price-info">
-                        <div class="price-monthly">120€/mes</div>
-                        <div class="price-yearly show">OFERTA: 1.390€/24 meses <span class="offer-extra-text">+ sesión de oráculo mensual + regalo sorpresa</span></div>
-                    </div>
-                </div>
-                <div class="cell header">
-                    <div class="plan-name">Lidera tu Tribu</div>
-                    <div class="plan-subtitle">Para Escalar tu Negocio Digital</div>
-                    <div class="price-info">
-                        <div class="price-monthly">250€/mes</div>
-                        <div class="price-yearly show">OFERTA: 3.000€/24 meses <span class="offer-extra-text">+ sesión de oráculo mensual + regalo sorpresa</span></div>
-                    </div>
-                </div>
-
-                <!-- FEATURES (LISTA COMPLETA) -->
-                <div class="cell section-header">Cómo vivir la astrología en tu cuerpo</div>
-                <div class="cell feature"><span class="feature-text">Clases de conexión astral</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Participa en clases y ceremonias en vivo para alinearte con los eventos astrológicos más importantes.</div></div></div>
-                <div class="cell"><span class="check">✓</span></div><div class="cell"><span class="check">✓</span></div><div class="cell"><span class="check">✓</span></div><div class="cell"><span class="check">✓</span></div>
-                
-                <div class="cell feature"><span class="feature-text">Prácticas, eventos y comunidad</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Forma parte de una comunidad activa con encuentros online y presenciales, prácticas grupales y un espacio seguro para compartir.</div></div></div>
-                <div class="cell"><span class="check">✓</span></div><div class="cell"><span class="check">✓</span></div><div class="cell"><span class="check">✓</span></div><div class="cell"><span class="check">✓</span></div>
-                
-                <div class="cell feature"><span class="feature-text">Guía personal de tránsitos</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Recibe un análisis personalizado de los tránsitos que más te influirán para navegar tu vida con consciencia.</div></div></div>
-                <div class="cell"><span class="check">✓</span></div><div class="cell"><span class="check">✓</span></div><div class="cell"><span class="check">✓</span></div><div class="cell"><span class="check">✓</span></div>
-                
-                <div class="cell feature"><span class="feature-text">Ritos de paso y mitología</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Profundiza en el significado de los ciclos planetarios a través de la mitología y ceremonias que marcan momentos clave.</div></div></div>
-                <div class="cell"><span class="check">✓</span></div><div class="cell"><span class="check">✓</span></div><div class="cell"><span class="check">✓</span></div><div class="cell"><span class="check">✓</span></div>
-                
-                <div class="cell feature"><span class="feature-text">Soporte por email 24/7</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Accede a nuestro equipo de soporte siempre que lo necesites para resolver dudas sobre el contenido o la plataforma.</div></div></div>
-                <div class="cell"><span class="check">✓</span></div><div class="cell"><span class="check">✓</span></div><div class="cell"><span class="check">✓</span></div><div class="cell"><span class="check">✓</span></div>
-
-                <div class="cell section-header">Astrología Personal y Vocacional</div>
-                <div class="cell feature"><span class="feature-text">Interpretación Carta Natal</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Aprende a leer tu carta (signos, planetas, casas, aspectos) para descubrir tus dones y propósito de vida.</div></div></div>
-                <div class="cell"><span class="cross">×</span></div><div class="cell"><span class="check">✓</span></div><div class="cell"><span class="check">✓</span></div><div class="cell"><span class="check">✓</span></div>
-                
-                <div class="cell feature"><span class="feature-text">Revolución Solar y Progresión</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Domina las técnicas predictivas más importantes para entender tus ciclos anuales y tu evolución personal a largo plazo.</div></div></div>
-                <div class="cell"><span class="cross">×</span></div><div class="cell"><span class="check">✓</span></div><div class="cell"><span class="check">✓</span></div><div class="cell"><span class="check">✓</span></div>
-                
-                <div class="cell feature"><span class="feature-text">Clases semanales de Q&A</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Participa en sesiones en vivo donde analizamos cartas de estudiantes para que aprendas de casos reales y resuelvas tus dudas.</div></div></div>
-                <div class="cell"><span class="cross">×</span></div><div class="cell"><span class="check">✓</span></div><div class="cell"><span class="check">✓</span></div><div class="cell"><span class="check">✓</span></div>
-                
-                <div class="cell feature"><span class="feature-text">Arteterapia</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Utiliza el arte y la creatividad como herramientas para integrar los arquetipos astrológicos y crear un espacio sagrado.</div></div></div>
-                <div class="cell"><span class="cross">×</span></div><div class="cell"><span class="check">✓</span></div><div class="cell"><span class="check">✓</span></div><div class="cell"><span class="check">✓</span></div>
-                
-                <div class="cell feature"><span class="feature-text">Astrología y otras terapias</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Descubre cómo combinar la astrología con Flores de Bach, Masaje, Tarot, etc., para un enfoque holístico.</div></div></div>
-                <div class="cell"><span class="cross">×</span></div><div class="cell"><span class="check">✓</span></div><div class="cell"><span class="check">✓</span></div><div class="cell"><span class="check">✓</span></div>
-                
-                <div class="cell feature"><span class="feature-text">Astrología y Paternidad</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Aprende a interpretar la carta de tus hijos para comprender mejor sus necesidades y potenciar sus talentos.</div></div></div>
-                <div class="cell"><span class="cross">×</span></div><div class="cell"><span class="check">✓</span></div><div class="cell"><span class="check">✓</span></div><div class="cell"><span class="check">✓</span></div>
-
-                <div class="cell section-header">Formación para Guías Profesionales</div>
-                <div class="cell feature"><span class="feature-text">Formación profesional</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Adquiere las habilidades, la ética y la estructura para ofrecer consultas astrológicas profesionales y transformar vidas.</div></div></div>
-                <div class="cell"><span class="cross">×</span></div><div class="cell"><span class="cross">×</span></div><div class="cell"><span class="check">✓</span></div><div class="cell"><span class="check">✓</span></div>
-                
-                <div class="cell feature"><span class="feature-text">Guía "Areté": Manual</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Accede a nuestro manual exclusivo que te guiará paso a paso en la preparación y ejecución de una lectura profesional.</div></div></div>
-                <div class="cell"><span class="cross">×</span></div><div class="cell"><span class="cross">×</span></div><div class="cell"><span class="check">✓</span></div><div class="cell"><span class="check">✓</span></div>
-                
-                <div class="cell feature"><span class="feature-text">Paso a paso para tu proyecto</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Recibe una hoja de ruta clara para definir tu nicho, crear tu marca y lanzar tu proyecto como guía astrológico.</div></div></div>
-                <div class="cell"><span class="cross">×</span></div><div class="cell"><span class="cross">×</span></div><div class="cell"><span class="check">✓</span></div><div class="cell"><span class="check">✓</span></div>
-                
-                <div class="cell feature"><span class="feature-text">El I Ching en consulta</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Aprende a integrar la sabiduría del I Ching en tus lecturas para ofrecer una capa adicional de profundidad y guía.</div></div></div>
-                <div class="cell"><span class="cross">×</span></div><div class="cell"><span class="cross">×</span></div><div class="cell"><span class="check">✓</span></div><div class="cell"><span class="check">✓</span></div>
-                
-                <div class="cell feature"><span class="feature-text">Estrategias para expandir</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Aprende a crear y monetizar formatos como libros, talleres o mentorías para diversificar tus ingresos y tu impacto.</div></div></div>
-                <div class="cell"><span class="cross">×</span></div><div class="cell"><span class="cross">×</span></div><div class="cell"><span class="check">✓</span></div><div class="cell"><span class="check">✓</span></div>
-                
-                <div class="cell feature"><span class="feature-text">Creación de Oferta Ideal</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Te ayudamos a diseñar una oferta de servicios irresistible y a que tu web comunique tu valor de forma efectiva.</div></div></div>
-                <div class="cell"><span class="cross">×</span></div><div class="cell"><span class="cross">×</span></div><div class="cell"><span class="check">✓</span></div><div class="cell"><span class="check">✓</span></div>
-
-                <div class="cell section-header">Estrategia y Crecimiento de Negocio Digital</div>
-                <div class="cell feature"><span class="feature-text">TODO el contenido anterior</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Acceso completo a todos los materiales, clases y recursos de los tres caminos anteriores para una formación integral.</div></div></div>
-                <div class="cell"><span class="cross">×</span></div><div class="cell"><span class="cross">×</span></div><div class="cell"><span class="cross">×</span></div><div class="cell"><span class="check">✓</span></div>
-                
-                <div class="cell feature"><span class="feature-text">Liderazgo de comunidad</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Aprende a crear, gestionar y dinamizar una comunidad online próspera que apoye a tus miembros y dé sostenibilidad a tu negocio.</div></div></div>
-                <div class="cell"><span class="cross">×</span></div><div class="cell"><span class="cross">×</span></div><div class="cell"><span class="cross">×</span></div><div class="cell"><span class="check">✓</span></div>
-                
-                <div class="cell feature"><span class="feature-text">Anuncios online</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Domina las bases de la publicidad en redes sociales para atraer a tus clientes ideales de forma predecible y rentable.</div></div></div>
-                <div class="cell"><span class="cross">×</span></div><div class="cell"><span class="cross">×</span></div><div class="cell"><span class="cross">×</span></div><div class="cell"><span class="check">✓</span></div>
-                
-                <div class="cell feature"><span class="feature-text">Crear comunidad en Circle</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Formación técnica y estratégica para utilizar Circle.so, la plataforma líder para comunidades online.</div></div></div>
-                <div class="cell"><span class="cross">×</span></div><div class="cell"><span class="cross">×</span></div><div class="cell"><span class="cross">×</span></div><div class="cell"><span class="check">✓</span></div>
-                
-                <div class="cell feature"><span class="feature-text">Producción de contenidos</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Aprende los secretos para grabar y producir vídeos y audios de alta calidad que te posicionen como un experto.</div></div></div>
-                <div class="cell"><span class="cross">×</span></div><div class="cell"><span class="cross">×</span></div><div class="cell"><span class="cross">×</span></div><div class="cell"><span class="check">✓</span></div>
-                
-                <div class="cell feature"><span class="feature-text">Sistema de Venta Evergreen</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Diseña un sistema automatizado que venda tus cursos y servicios 24/7, dándote libertad y estabilidad económica.</div></div></div>
-                <div class="cell"><span class="cross">×</span></div><div class="cell"><span class="cross">×</span></div><div class="cell"><span class="cross">×</span></div><div class="cell"><span class="check">✓</span></div>
-                
-                <div class="cell feature"><span class="feature-text">Dominio de Circle.so</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Conviértete en un experto en Circle.so, aprendiendo a configurar espacios, eventos, cursos y automatizaciones.</div></div></div>
-                <div class="cell"><span class="cross">×</span></div><div class="cell"><span class="cross">×</span></div><div class="cell"><span class="cross">×</span></div><div class="cell"><span class="check">✓</span></div>
-                
-                <div class="cell feature"><span class="feature-text">Acceso a plantillas Sidera</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Ahorra cientos de horas con nuestro arsenal de plantillas probadas para emails, páginas de venta, organización y más.</div></div></div>
-                <div class="cell"><span class="cross">×</span></div><div class="cell"><span class="cross">×</span></div><div class="cell"><span class="cross">×</span></div><div class="cell"><span class="check">✓</span></div>
-                
-                <div class="cell section-header">Soporte Premium y Exclusivos</div>
-                <div class="cell feature"><span class="feature-text">Sesiones Estrategia 1 a 1</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Reúnete trimestralmente con Raquel y Miquel en sesiones privadas para recibir asesoramiento personalizado sobre tu negocio.</div></div></div>
-                <div class="cell"><span class="cross">×</span></div><div class="cell"><span class="cross">×</span></div><div class="cell"><span class="cross">×</span></div><div class="cell"><span class="special-value">Con oferta 2 años</span></div>
-                
-                <div class="cell feature"><span class="feature-text">Sesiones mensuales Oráculo</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Participa en sesiones grupales exclusivas donde usamos el oráculo para obtener guía y claridad sobre los desafíos del mes.</div></div></div>
-                <div class="cell"><span class="special-value">Incluidas 2 años</span></div><div class="cell"><span class="special-value">Incluidas 2 años</span></div><div class="cell"><span class="special-value">Incluidas 2 años</span></div><div class="cell"><span class="special-value">Incluidas 2 años</span></div>
-
-                <!-- BOTONES -->
-                <div class="cell section-header">Siguiente Paso</div>
-                <div class="cell feature">Más información</div>
-                <div class="cell"><a href="https://vocacionante.com/agenda" target="_blank" class="btn-inscription">Inscripción</a></div>
-                <div class="cell"><a href="https://vocacionante.com/agenda" target="_blank" class="btn-inscription">Inscripción</a></div>
-                <div class="cell"><a href="https://vocacionante.com/agenda" target="_blank" class="btn-inscription">Inscripción</a></div>
-                <div class="cell"><a href="https://vocacionante.com/agenda" target="_blank" class="btn-inscription">Inscripción</a></div>
-            </div>
-        </div>
-    </div>
-
-    <div class="expand-button">
-        <button class="btn-expand" id="toggleDetails">Ver todas las características →</button>
-    </div>
-
-    <div class="detailed-comparison" id="detailedComparison">
+    <div class="plan-cards-container">
         <div class="plan-cards">
-            <!-- TARJETAS DETALLADAS (LISTA COMPLETA) -->
+            <!-- TARJETA 1: CYCLUS -->
             <div class="plan-card cyclus">
                 <div class="card-header">
-                    <h3>Membresía Cyclus</h3><p class="card-subtitle">Para conectarte con los tránsitos y los ritos astrológicos</p>
+                    <h3>Membresía Cyclus</h3><p class="card-subtitle">para conectarte con tus tránsitos personales y con los ritos astrológicos</p>
                     <div class="card-prices">
                         <div class="price-item monthly"><div class="price-label">Inversión Mensual:</div><div class="price-value">40€<small>/mes</small></div></div>
-                        <div class="price-item yearly show"><div class="price-label">OFERTA ESPECIAL (hasta 1 Nov):</div><div class="price-value">440€<small> por 24 meses</small></div><div class="offer-extra-text">+ sesión de oráculo mensual + regalo sorpresa</div></div>
+                        <div class="price-item yearly"><div class="price-label">OFERTA ESPECIAL:</div><div class="price-value">440€<small> por 24 meses</small></div><div class="offer-extra-text">+ sesión de oráculo mensual + regalo sorpresa que te cuento en la llamada de bienvenida</div></div>
                     </div>
-                    <div class="special-offer">✨ Incluye sesiones mensuales de Oráculo por 2 años</div>
+                    <div class="special-offer">✨ Si compras la opción de los dos años te llevas una sesión de oráculo cada mes</div>
                 </div>
                 <div class="card-body">
-                    <div class="feature-section"><div class="feature-section-title">Cómo vivir la astrología</div>
+                    <div class="feature-section"><div class="feature-section-title">Conéctate con tus propios tránsitos</div>
                         <ul class="feature-list">
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Clases de conexión astral</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Participa en clases y ceremonias en vivo para alinearte con los eventos astrológicos.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Prácticas y comunidad</span></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Guía de tránsitos del año</span></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Ritos de paso y mitología</span></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Soporte por email 24/7</span></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Clases de conexión astral</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Clases cada Luna Nueva, cada Luna Llena, y en el día del paso del Sol para conectarte con los tránsitos astrológicos según tu propia carta natal y hacer preguntas.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Prácticas y comunidad</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Formarás parte de una comunidad activa con prácticas, eventos presenciales en toda España, y un espacio único para compartir.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Guía de tránsitos del año</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Acceso a preguntar y vivir todos los tránsitos del año según tu carta natal.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Ritos de paso y mitología</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Profundiza en el significado de los ciclos planetarios a través de la mitología y de la antropología aplicada a los ritos de paso.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Soporte ilimitado por e-mail 24/7</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Accede siempre a hablar con nosotros a través del apartado de soporte. Puedes enviarnos cualquier duda sobre tu carta natal o tu situación personal siempre que lo necesites desde allí.</div></div></li>
                         </ul>
                     </div>
-                    <div class="feature-section"><div class="feature-section-title">No Incluye</div>
+                    <div class="feature-section"><div class="feature-section-title">No incluye</div>
                         <ul class="feature-list">
-                            <li><span class="feature-icon not-included">×</span> Astrología Personal y Vocacional</li>
-                            <li><span class="feature-icon not-included">×</span> Formación para Guías</li>
+                            <li><span class="feature-icon not-included">×</span><span class="feature-text">Conocimiento profundo de tu carta natal</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Aquí conoces tu carta natal en profundidad. Cómo están tus planetas, si están en vicio, en virtud o en bloqueo, cuál es el hilo de tu destino y cómo caminar hacia tu vocación.</div></div></li>
+                            <li><span class="feature-icon not-included">×</span><span class="feature-text">Formación para ser guía vocacional</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">La formación para aprender a leer cartas natales con profesionalidad mezclando este conocimiento con las técnicas que ya dominas.</div></div></li>
                         </ul>
                     </div>
                 </div>
-                <div class="card-footer"><a href="https://vocacionante.com/agenda" target="_blank" class="btn-cta">Más información</a></div>
+                <div class="card-footer"><a href="https://vocacionante.com/agenda" target="_blank" class="btn-cta">Agendar llamada</a></div>
             </div>
 
+            <!-- TARJETA 2: CONECTA -->
             <div class="plan-card conecta">
                 <div class="card-header">
                     <h3>Conecta con tu Vocación</h3><p class="card-subtitle">Para conocer en profundidad tu carta natal</p>
                     <div class="card-prices">
                         <div class="price-item monthly"><div class="price-label">Inversión Mensual:</div><div class="price-value">80€<small>/mes</small></div></div>
-                        <div class="price-item yearly show"><div class="price-label">OFERTA ESPECIAL (hasta 1 Nov):</div><div class="price-value">990€<small> por 24 meses</small></div><div class="offer-extra-text">+ sesión de oráculo mensual + regalo sorpresa</div></div>
+                        <div class="price-item yearly"><div class="price-label">OFERTA ESPECIAL:</div><div class="price-value">990€<small> por 24 meses</small></div><div class="offer-extra-text">+ sesión de oráculo mensual + regalo sorpresa que te cuento en la llamada de bienvenida</div></div>
                     </div>
-                    <div class="special-offer">✨ Incluye sesiones mensuales de Oráculo por 2 años</div>
+                    <div class="special-offer">✨ Si compras la opción de los dos años te llevas una sesión de oráculo cada mes</div>
                 </div>
                 <div class="card-body">
-                    <div class="feature-section"><div class="feature-section-title">TODO de Cyclus y además:</div></div>
+                    <div class="feature-section"><div class="feature-section-title">Todo lo de Cyclus y además conocimiento profundo de tu carta natal</div></div>
                     <div class="feature-section"><div class="feature-section-title">Astrología Personal y Vocacional</div>
                         <ul class="feature-list">
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Interpretación de Carta Natal</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Aprende a leer tu carta para descubrir tus dones y propósito.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Revolución Solar y Progresión</span></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Clases semanales de Q&A</span></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Arteterapia y Templo Astrológico</span></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Astrología y otras terapias</span></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Astrología y Paternidad</span></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Interpretación de tu carta natal</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Aprende a leer todos los elementos de tu carta (signos, planetas, casas, aspectos) para descubrir tus dones y propósito.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">tu Revolución Solar y Progresión</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Domina las técnicas predictivas para entender tus ciclos anuales y tu evolución personal a largo plazo.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Clases semanales de Q&A</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Participa en sesiones en vivo donde analizamos cartas de estudiantes para que aprendas de casos reales y resuelvas dudas.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Arteterapia, MTC, Flores de Bach, Tarot aplicado a la carta natal</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Utiliza el arte y la creatividad como herramientas para integrar los arquetipos astrológicos y crear un espacio sagrado.</div></div></li>
+                             <li><span class="feature-icon included">✓</span><span class="feature-text">Bonus: Paternidad y Maternidad con astrología</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Aprende a interpretar la carta de tus hijos para comprender mejor sus necesidades y potenciar sus talentos.</div></div></li>
+                        </ul>
+                    </div>
+                    <div class="feature-section"><div class="feature-section-title">No incluye</div>
+                        <ul class="feature-list">
+                           <li><span class="feature-icon not-included">×</span><span class="feature-text">Formación para ser guía vocacional</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">El entrenamiento para ser Guía Profesional no está incluido. Es el núcleo del plan 'Guía Vocacional'.</div></div></li>
                         </ul>
                     </div>
                 </div>
-                <div class="card-footer"><a href="https://vocacionante.com/agenda" target="_blank" class="btn-cta">Más información</a></div>
+                <div class="card-footer"><a href="https://vocacionante.com/agenda" target="_blank" class="btn-cta">Agendar llamada</a></div>
             </div>
 
+            <!-- TARJETA 3: GUÍA -->
             <div class="plan-card guia">
                 <div class="card-header">
                     <h3>Guía Vocacional</h3><p class="card-subtitle">Para ser un Guía Astrológico Profesional</p>
                     <div class="card-prices">
-                        <div class="price-item monthly"><div class="price-label">Inversión Mensual:</div><div class="price-value">120€<small>/mes</small></div></div>
-                        <div class="price-item yearly show"><div class="price-label">OFERTA ESPECIAL (hasta 1 Nov):</div><div class="price-value">1.390€<small> por 24 meses</small></div><div class="offer-extra-text">+ sesión de oráculo mensual + regalo sorpresa</div></div>
+                         <div class="price-item monthly"><div class="price-label">Inversión Mensual:</div><div class="price-value">120€<small>/mes</small></div></div>
+                         <div class="price-item yearly"><div class="price-label">OFERTA ESPECIAL:</div><div class="price-value">1.390€<small> por 24 meses</small></div><div class="offer-extra-text">+ sesión de oráculo mensual + regalo sorpresa que te cuento en la llamada de bienvenida</div></div>
                     </div>
-                    <div class="special-offer">✨ Incluye sesiones mensuales de Oráculo por 2 años</div>
+                    <div class="special-offer">✨ Si compras la opción de los dos años te llevas una sesión de oráculo cada mes</div>
                 </div>
                 <div class="card-body">
-                    <div class="feature-section"><div class="feature-section-title">TODO de Cyclus, Conecta y además:</div></div>
-                    <div class="feature-section"><div class="feature-section-title">Formación para Guías Profesionales</div>
+                    <div class="feature-section"><div class="feature-section-title">Todo lo de Cyclus, Conecta y además formación para ser guía vocacional</div></div>
+                    <div class="feature-section"><div class="feature-section-title">Formación para ser Guía Vocacional</div>
                         <ul class="feature-list">
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Formación profesional</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Adquiere las habilidades y ética para ofrecer consultas profesionales.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Guía "Areté": Manual</span></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Paso a paso para tu proyecto</span></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">El I Ching en consulta</span></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Estrategias para expandir</span></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Creación de tu Oferta Ideal</span></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Formación en Guía Vocacional con astrología</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Adquiere las habilidades, ética y estructura para ofrecer consultas astrológicas profesionales y transformar vidas.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">El I Ching en consulta</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Aprende a integrar la sabiduría del I Ching en tus lecturas para ofrecer una capa adicional de profundidad y guía.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Guía "Areté": Manual</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Accede a nuestro manual exclusivo que te guiará paso a paso en la preparación y ejecución de una lectura profesional.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">El paso a paso para tu proyecto según tu carta natal</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Recibe una hoja de ruta clara para definir tu nicho, crear tu marca y lanzar tu proyecto como guía astrológico.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Creación de tu oferta ideal según tu carta natal</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Te ayudamos a diseñar una oferta de servicios irresistible y a que tu web comunique tu valor de forma efectiva.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Mastermind grupal de terapeutas</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Aprende a crear y monetizar formatos como libros, talleres o mentorías para diversificar tus ingresos y tu impacto.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Bonus: Cómo hacer tu newsletter personal</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Aprende a crear y monetizar formatos como libros, talleres o mentorías para diversificar tus ingresos y tu impacto.</div></div></li>
+                        </ul>
+                    </div>
+                     <div class="feature-section"><div class="feature-section-title">No incluye</div>
+                        <ul class="feature-list">
+                            <li><span class="feature-icon not-included">×</span><span class="feature-text">Cómo crear un sistema de ventas</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Las herramientas y mentoría para escalar tu negocio son exclusivas del plan 'Lidera tu Tribu'.</div></div></li>
+                            <li><span class="feature-icon not-included">×</span><span class="feature-text">Cómo crear una comunidad en circle.so</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Las herramientas y mentoría para escalar tu negocio son exclusivas del plan 'Lidera tu Tribu'.</div></div></li>
+                            <li><span class="feature-icon not-included">×</span><span class="feature-text">Ninguna implementación técnica</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Las herramientas y mentoría para escalar tu negocio son exclusivas del plan 'Lidera tu Tribu'.</div></div></li>
                         </ul>
                     </div>
                 </div>
-                <div class="card-footer"><a href="https://vocacionante.com/agenda" target="_blank" class="btn-cta">Más información</a></div>
+                <div class="card-footer"><a href="https://vocacionante.com/agenda" target="_blank" class="btn-cta">Agendar llamada</a></div>
             </div>
 
+            <!-- TARJETA 4: LIDERA -->
             <div class="plan-card lidera">
                 <div class="card-header">
                     <h3>Lidera tu Tribu</h3><p class="card-subtitle">Para Escalar tu Negocio Digital</p>
                     <div class="card-prices">
                         <div class="price-item monthly"><div class="price-label">Inversión Mensual:</div><div class="price-value">250€<small>/mes</small></div></div>
-                        <div class="price-item yearly show"><div class="price-label">OFERTA ESPECIAL (hasta 1 Nov):</div><div class="price-value">3.000€<small> por 24 meses</small></div><div class="offer-extra-text">+ sesión de oráculo mensual + regalo sorpresa</div></div>
+                        <div class="price-item yearly"><div class="price-label">OFERTA ESPECIAL:</div><div class="price-value">3.000€<small> por 24 meses</small></div><div class="offer-extra-text">+ sesión de oráculo mensual + regalo sorpresa que te cuento en la llamada de bienvenida</div></div>
                     </div>
-                    <div class="special-offer">✨ Incluye sesiones 1a1 trimestrales con la oferta</div>
+                    <div class="special-offer">✨ Si compras la opción de los dos años te llevas una sesión 1a1 trimestral</div>
                 </div>
                 <div class="card-body">
-                    <div class="feature-section"><div class="feature-section-title">Incluye TODO</div>
+                    <div class="feature-section"><div class="feature-section-title">TODO lo anterior y además:</div></div>
+                    <div class="feature-section"><div class="feature-section-title">Creación de un sistema de ventas y/o de tu comunidad online</div>
                         <ul class="feature-list">
-                            <li><span class="feature-icon included">✓</span> <span class="highlight">TODO de Cyclus, Conecta y Guía</span></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Liderazgo de comunidad</span></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Anuncios online</span></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Sistema de Venta Evergreen</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Diseña un sistema automatizado que venda tus servicios 24/7.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Dominio de Circle.so</span></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Acceso a plantillas Sidera</span></li>
-                            <li><span class="feature-icon included">✓</span> <span class="highlight">Sesiones de Estrategia 1a1</span></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Acompañamiento al liderazgo de tu comunidad</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Aprende a crear, gestionar y dinamizar una comunidad online próspera que apoye a tus miembros y dé sostenibilidad a tu negocio.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Creación de tus anuncios online</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Domina las bases de la publicidad en redes sociales para atraer a tus clientes ideales de forma predecible y rentable.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Tu sistema de venta según tu carta natal</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Diseña un sistema automatizado que venda tus cursos y servicios 24/7, dándote libertad y estabilidad económica.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Cómo producir contenidos según tu tipo de producto</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Aprende los secretos para grabar y producir vídeos y audios de alta calidad que te posicionen como un experto.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Sesiones de Estrategia 1 a 1</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Conviértete en un experto en Circle.so, aprendiendo a configurar espacios, eventos, cursos y automatizaciones.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Apoyo ilimitado a tu emprendimiento</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Ahorra cientos de horas con nuestro arsenal de plantillas probadas para emails, páginas de venta, organización y más.</div></div></li>
                         </ul>
                     </div>
                 </div>
-                <div class="card-footer"><a href="https://vocacionante.com/agenda" target="_blank" class="btn-cta">Más información</a></div>
+                <div class="card-footer"><a href="https://vocacionante.com/agenda" target="_blank" class="btn-cta">Agendar llamada</a></div>
             </div>
         </div>
     </div>
-
-    <script>
-        // Toggle de precios mensual/anual
-        const switchElement = document.getElementById('switch');
-        const spans = switchElement.querySelectorAll('span');
-        const monthlyPrices = document.querySelectorAll('.price-monthly, .price-item.monthly');
-        const yearlyPrices = document.querySelectorAll('.price-yearly, .price-item.yearly');
-
-        function showPricing(mode) {
-            spans.forEach(span => {
-                span.classList.remove('active');
-                if (span.dataset.mode === mode) {
-                    span.classList.add('active');
-                }
-            });
-
-            if (mode === 'monthly') {
-                monthlyPrices.forEach(price => price.classList.add('show'));
-                yearlyPrices.forEach(price => price.classList.remove('show'));
-            } else {
-                monthlyPrices.forEach(price => price.classList.remove('show'));
-                yearlyPrices.forEach(price => price.classList.add('show'));
-            }
-        }
-
-        spans.forEach(span => {
-            span.addEventListener('click', () => { showPricing(span.dataset.mode); });
-        });
-
-        // Toggle detalles expandidos
-        const toggleBtn = document.getElementById('toggleDetails');
-        const detailedSection = document.getElementById('detailedComparison');
-
-        toggleBtn.addEventListener('click', () => {
-            detailedSection.classList.toggle('show');
-            if (detailedSection.classList.contains('show')) {
-                toggleBtn.textContent = '← Ocultar detalles';
-                toggleBtn.classList.add('active');
-                detailedSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            } else {
-                toggleBtn.textContent = 'Ver todas las características →';
-                toggleBtn.classList.remove('active');
-            }
-        });
-
-        // Inicializar con precios anuales
-        showPricing('yearly');
-    </script>
 </section>
 </body>
 </html>
