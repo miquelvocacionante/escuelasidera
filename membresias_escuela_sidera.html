@@ -21,9 +21,6 @@
             font-size: clamp(28px, 5vw, 40px);
             margin-top: 20px; color: #222;
         }
-        .main-header .subtitle {
-            font-size: clamp(16px, 3vw, 18px); color: #666; margin-top: 5px;
-        }
         .pricing .offer-subtitle {
             text-align: center; color: #666; margin-bottom: 30px;
             font-size: clamp(14px, 3vw, 15px); line-height: 1.5;
@@ -42,17 +39,21 @@
             text-align: left; border-radius: 6px; padding: 8px 12px;
             position: absolute; z-index: 100; 
             top: 50%;
-            right: calc(100% + 10px); /* Posición a la izquierda del icono */
+            right: calc(100% + 10px);
             transform: translateY(-50%);
             opacity: 0; transition: opacity 0.3s, visibility 0.3s;
             font-size: 11px; line-height: 1.4; font-weight: normal;
         }
+        .tooltip-text strong {
+            display: block;
+            margin-bottom: 5px;
+            color: #f0f0f0;
+        }
         .tooltip-text::after {
-            content: ""; position: absolute; top: 50%; left: 100%; /* Flecha a la derecha del tooltip */
+            content: ""; position: absolute; top: 50%; left: 100%;
             margin-top: -5px; border-width: 5px; border-style: solid; 
             border-color: transparent transparent transparent #333;
         }
-        /* Regla de visibilidad controlada por hover (desktop) y la clase .show (JS) */
         .tooltip-container:hover .tooltip-text, .tooltip-text.show { 
             visibility: visible; 
             opacity: 1; 
@@ -84,7 +85,6 @@
         .price-label { font-size: clamp(10px, 2.2vw, 12px); color: #666; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
         .price-value { font-size: clamp(20px, 4vw, 24px); font-weight: 700; color: #333; }
         .price-value small { font-size: clamp(12px, 2.2vw, 14px); color: #666; font-weight: normal; }
-        .offer-extra-text { display: none; }
         .special-offer {
             background: #fef3c7; color: #92400e; padding: 10px 15px; margin: 15px -20px -20px;
             font-size: clamp(10px, 2.2vw, 11px); font-weight: 600; text-align: center;
@@ -93,8 +93,14 @@
         .card-body { padding: 20px; flex-grow: 1; }
         .feature-section { margin-bottom: 20px; }
         .feature-section-title {
-            font-size: clamp(11px, 2.2vw, 12px); font-weight: 700; color: #6366f1;
+            font-size: clamp(11px, 2.2vw, 12px); font-weight: 700; color: #3163bd;
             margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .cumulative-title {
+            color: #222;
+            text-transform: none;
+            font-weight: 700;
+            font-size: clamp(13px, 2.5vw, 15px);
         }
         .feature-list { list-style: none; margin: 0; padding: 0; }
         .feature-list li { padding: 8px 0; font-size: clamp(12px, 2.2vw, 13px); display: flex; align-items: center; border-bottom: 1px solid #f3f4f6;}
@@ -103,7 +109,7 @@
         .feature-icon { margin-right: 10px; flex-shrink: 0; font-size: 16px; }
         .feature-list .included { color: #10b981; }
         .feature-list .not-included { color: #ef4444; opacity: 0.6; }
-        .feature-list .highlight { font-weight: 600; color: #6366f1; }
+        .feature-list .bonus-icon { color: #f59e0b; }
         
         .card-footer { padding: 20px; padding-top: 0; }
         .btn-cta {
@@ -138,19 +144,25 @@
                 <div class="card-body">
                     <div class="feature-section"><div class="feature-section-title">Conéctate con tus propios ciclos y tránsitos</div>
                         <ul class="feature-list">
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Clases de conexión astral</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Clases cada luna nueva, cada luna llena, y en el día del paso del sol para conectarte con los tránsitos astrológicos según tu propia carta natal y hacer preguntas.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Prácticas y comunidad</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Formarás parte de una comunidad activa con prácticas, eventos presenciales en toda España, y un espacio único para compartir.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Guía de tránsitos del año</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Acceso a preguntar y vivir todos los tránsitos del año según tu carta natal.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Ritos de paso y mitología</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Profundiza en el significado de los ciclos planetarios a través de la mitología y de la antropología aplicada a los ritos de paso.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Soporte ilimitado por e-mail 24/7</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Accede siempre a hablar con nosotros a través del apartado de soporte. Puedes enviarnos cualquier duda sobre tu carta natal o tu situación personal siempre que lo necesites desde allí.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Aprende a guiar la siembra lunar</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Aprende a guiar círculos astrológicos ya sea para ti mismo o para tu comunidad.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Aprende a aplicar los ritos de paso</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Aprende a guiar ritos de paso para ceremonias de nacimiento, boda, duelo, etcétera, aplicadas a la carta natal.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Clases de conexión astral</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Clases de conexión astral</strong>Clases cada luna nueva, cada luna llena, y en el día del paso del sol para conectarte con los tránsitos astrológicos según tu propia carta natal y hacer preguntas.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Prácticas y comunidad</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Prácticas y comunidad</strong>Formarás parte de una comunidad activa con prácticas, eventos presenciales en toda España, y un espacio único para compartir.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Guía de tránsitos del año</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Guía de tránsitos del año</strong>Acceso a preguntar y vivir todos los tránsitos del año según tu carta natal.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Ritos de paso y mitología</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Ritos de paso y mitología</strong>Profundiza en el significado de los ciclos planetarios a través de la mitología y de la antropología aplicada a los ritos de paso.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Soporte ilimitado por e-mail 24/7</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Soporte ilimitado por e-mail 24/7</strong>Accede siempre a hablar con nosotros a través del apartado de soporte. Puedes enviarnos cualquier duda sobre tu carta natal o tu situación personal siempre que lo necesites desde allí.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Aprende a guiar la siembra lunar</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Aprende a guiar la siembra lunar</strong>Aprende a guiar círculos astrológicos ya sea para ti mismo o para tu comunidad.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Aprende a aplicar los ritos de paso</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Aprende a aplicar los ritos de paso</strong>Aprende a guiar ritos de paso para ceremonias de nacimiento, boda, duelo, etcétera, aplicadas a la carta natal.</div></div></li>
                         </ul>
                     </div>
                     <div class="feature-section"><div class="feature-section-title">No incluye</div>
                         <ul class="feature-list">
-                            <li><span class="feature-icon not-included">×</span><span class="feature-text">Conocimiento profundo de tu carta natal</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Aquí conoces tu carta natal en profundidad. Cómo están tus planetas, si están en vicio, en virtud o en bloqueo, cuál es el hilo de tu destino y cómo caminar hacia tu vocación.</div></div></li>
-                            <li><span class="feature-icon not-included">×</span><span class="feature-text">Formación para ser guía vocacional</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">La formación para aprender a leer cartas natales con profesionalidad mezclando este conocimiento con las técnicas que ya dominas.</div></div></li>
+                            <li><span class="feature-icon not-included">×</span><span class="feature-text">Conocimiento profundo de tu carta natal</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Conocimiento profundo de tu carta natal</strong>No incluye el módulo donde conoces tu carta natal en profundidad: cómo están tus planetas, si están en vicio, en virtud o en bloqueo, cuál es el hilo de tu destino y cómo caminar hacia tu vocación.</div></div></li>
+                            <li><span class="feature-icon not-included">×</span><span class="feature-text">Formación para ser guía vocacional</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Formación para ser guía vocacional</strong>No incluye la formación para aprender a leer cartas natales con profesionalidad mezclando este conocimiento con las técnicas que ya dominas.</div></div></li>
+                        </ul>
+                    </div>
+                    <div class="feature-section"><div class="feature-section-title">Solo Anual</div>
+                        <ul class="feature-list">
+                            <li><span class="feature-icon bonus-icon">✨</span><span class="feature-text">Sesión de Oráculo cada mes</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Sesión de Oráculo cada mes</strong>Participa en una sesión mensual de Oráculo para obtener guía y claridad sobre tus próximos pasos.</div></div></li>
+                            <li><span class="feature-icon bonus-icon">🎁</span><span class="feature-text">Regalo sorpresa</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Regalo sorpresa</strong>Un obsequio especial y personalizado que te revelaremos durante nuestra llamada inicial para darte la bienvenida a la escuela.</div></div></li>
                         </ul>
                     </div>
                 </div>
@@ -168,22 +180,28 @@
                     <div class="special-offer">✨ Si compras la opción de los dos años, te llevas una sesión de oráculo cada mes, más regalo de sorpresa que te cuento en la llamada de bienvenida</div>
                 </div>
                 <div class="card-body">
-                    <div class="feature-section"><div class="feature-section-title">Todo lo de Cyclus y además conocimiento profundo de tu carta natal</div></div>
+                    <div class="feature-section"><div class="feature-section-title cumulative-title">Todo lo de Cyclus y además:</div></div>
                     <div class="feature-section"><div class="feature-section-title">Astrología aplicada a tu situación personal</div>
                         <ul class="feature-list">
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Interpretación de tu carta natal</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Aprende a leer todos los elementos de tu carta (signos, planetas, casas, aspectos) para descubrir tus dones, tu propósito, y el desafío de destino de tu carta natal.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Trasciende el nudo de tu propia carta</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Conoces el nudo de tu carta y trasciéndelo con las herramientas como la medicina tradicional china, las flores de bach o la arteterapia.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Tu Revolución Solar y Progresión Secundaria</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Conoce qué te toca hacer cada año, según tu revolución solar y tu progresión secundaria interpretándolas por ti mismo.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Clases semanales de preguntas y respuestas</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Clases en directo con Miquel, Raquel y otros profesores. Dónde puedes preguntar todo lo que necesites sobre tu propia carta o la de amigos y familiares para que aprendas de casos reales y resuelvas dudas.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Bonus: Arteterapia, MTC, Flores de Bach, Tarot</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Kit de herramientas totalmente prácticas y aplicadas en el día a día para equilibrar tu carta.</div></div></li>
-                             <li><span class="feature-icon included">✓</span><span class="feature-text">Bonus: Paternidad y Maternidad</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Aprendes la relación entre tu carta y las cartas de tu familia para comprender mejor vuestras necesidades y potenciar vuestros talentos.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Creación de tu templo astrológico</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Crea un lugar físico al cual siempre puedes ir para conectarte con toda la potencia de tu propia carta natal.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">IGA: Comprende tu verdadera vocación</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Aprende a través de tu carta natal cómo combinar todos sus elementos para dedicarte a aquello que es realmente tu pasión.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Interpretación de tu carta natal</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Interpretación de tu carta natal</strong>Aprende a leer todos los elementos de tu carta (signos, planetas, casas, aspectos) para descubrir tus dones, tu propósito, y el desafío de destino de tu carta natal.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Trasciende el nudo de tu propia carta</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Trasciende el nudo de tu propia carta</strong>Conoces el nudo de tu carta y trasciéndelo con las herramientas como la medicina tradicional china, las flores de bach o la arteterapia.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Tu Revolución Solar y Progresión Secundaria</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Tu Revolución Solar y Progresión Secundaria</strong>Conoce qué te toca hacer cada año, según tu revolución solar y tu progresión secundaria interpretándolas por ti mismo.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Clases semanales de preguntas y respuestas</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Clases semanales de preguntas y respuestas</strong>Clases en directo con Miquel, Raquel y otros profesores. Dónde puedes preguntar todo lo que necesites sobre tu propia carta o la de amigos y familiares para que aprendas de casos reales y resuelvas dudas.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Bonus: Arteterapia, MTC, Flores de Bach, Tarot</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Bonus: Arteterapia, MTC, Flores de Bach, Tarot</strong>Kit de herramientas totalmente prácticas y aplicadas en el día a día para equilibrar tu carta.</div></div></li>
+                             <li><span class="feature-icon included">✓</span><span class="feature-text">Bonus: Paternidad y Maternidad</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Bonus: Paternidad y Maternidad</strong>Aprendes la relación entre tu carta y las cartas de tu familia para comprender mejor vuestras necesidades y potenciar vuestros talentos.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Creación de tu templo astrológico</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Creación de tu templo astrológico</strong>Crea un lugar físico al cual siempre puedes ir para conectarte con toda la potencia de tu propia carta natal.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">IGA: Comprende tu verdadera vocación</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>IGA: Comprende tu verdadera vocación</strong>Aprende a través de tu carta natal cómo combinar todos sus elementos para dedicarte a aquello que es realmente tu pasión.</div></div></li>
                         </ul>
                     </div>
                     <div class="feature-section"><div class="feature-section-title">No incluye</div>
                         <ul class="feature-list">
-                           <li><span class="feature-icon not-included">×</span><span class="feature-text">Formación para ser guía vocacional</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">La formación para aprender a leer cartas natales con profesionalidad, mezclando este conocimiento con las técnicas que ya dominas.</div></div></li>
+                           <li><span class="feature-icon not-included">×</span><span class="feature-text">Formación para ser guía vocacional</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Formación para ser guía vocacional</strong>No incluye la formación para aprender a leer cartas natales con profesionalidad, mezclando este conocimiento con las técnicas que ya dominas.</div></div></li>
+                        </ul>
+                    </div>
+                     <div class="feature-section"><div class="feature-section-title">Solo Anual</div>
+                        <ul class="feature-list">
+                            <li><span class="feature-icon bonus-icon">✨</span><span class="feature-text">Sesión de Oráculo cada mes</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Sesión de Oráculo cada mes</strong>Participa en una sesión mensual de Oráculo para obtener guía y claridad sobre tus próximos pasos.</div></div></li>
+                            <li><span class="feature-icon bonus-icon">🎁</span><span class="feature-text">Regalo sorpresa</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Regalo sorpresa</strong>Un obsequio especial y personalizado que te revelaremos durante nuestra llamada inicial para darte la bienvenida a la escuela.</div></div></li>
                         </ul>
                     </div>
                 </div>
@@ -201,27 +219,34 @@
                     <div class="special-offer">✨ Si compras la opción de los dos años, te llevas una sesión de oráculo cada mes más el Manual Areté (solo en la opción de los dos años), más regalo sorpresa que te cuento en la llamada de bienvenida</div>
                 </div>
                 <div class="card-body">
-                    <div class="feature-section"><div class="feature-section-title">Todo lo de Cyclus, Conecta y además la formación para ser guía vocacional y crear tu propio proyecto</div></div>
+                    <div class="feature-section"><div class="feature-section-title cumulative-title">Todo lo de Cyclus, Conecta con tu Vocación y además:</div></div>
                     <div class="feature-section"><div class="feature-section-title">Formación para ser Guía Vocacional y crear tu propio proyecto</div>
                         <ul class="feature-list">
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Formación en Guía Vocacional</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Adquiere las habilidades, ética y estructura para ofrecer consultas astrológicas profesionales y transformar vidas.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">El I Ching en consulta</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Aprende a integrar la sabiduría del I Ching en tus lecturas para ofrecer una capa adicional de profundidad y guía.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Guía Areté (Manual Astrológico)</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">El manual que te ahorrará horas y horas de preparación de tus consultas para que aprendas a hacer consultas sin tener que estar horas estudiándote la carta o escribiéndotela antes de que llegue el consultante.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Paso a paso para tu proyecto</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Recibe una hoja de ruta clara para definir tu proyecto. Cuál es el primer paso que tienes que dar para visibilizar lo que haces.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Creación de tu oferta ideal</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Te ayudamos a comprender qué es lo que quieres ofrecer realmente al mundo. Un libro, sesiones uno a uno, talleres grupales, formaciones...</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Clases semanales de Q y A</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Participa en sesiones en vivo donde puedes traer todas las cartas de tus pacientes que quieras. Y donde podremos hablar en directo de tu paso a paso sobre cómo te vas a visibilizar, cómo vas a hacer público lo que tú haces.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Mastermind grupal de terapeutas</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Encuentros de todos los terapeutas que estamos trabajando nuestros proyectos para compartir estrategias y hacer sinergias.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Bonus: Cómo hacer tu newsletter</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Aprende a crear tu propia newsletter. Aprende cómo funciona y utiliza la escritura para hacerle llegar a tu público tus conocimientos.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Apoyo ilimitado a tu emprendimiento</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Seremos tu apoyo ilimitado ante todas las dudas que surjan en tu proceso de emprendimiento: con quién asociarte, cuál es tu primer paso, cómo comprender bien qué es lo que quieren tus pacientes o tu público...</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Diagnosticar profesionalmente</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Cómo tener una técnica infalible para estar totalmente seguro dentro de una consulta de que lo estás haciendo bien y estás apoyando realmente a tu paciente.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Acompañamiento a crear tu web y RRSS</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">A través de las masterminds y de las clases grupales y de un bonus específico de este programa, te acompañamos a crear tu propio mensaje, tu forma única de comunicar a los demás lo que haces.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Formación en Guía Vocacional</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Formación en Guía Vocacional</strong>Adquiere las habilidades, ética y estructura para ofrecer consultas astrológicas profesionales y transformar vidas.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">El I Ching en consulta</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>El I Ching en consulta</strong>Aprende a integrar la sabiduría del I Ching en tus lecturas para ofrecer una capa adicional de profundidad y guía.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Guía Areté (Manual Astrológico)</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Guía Areté (Manual Astrológico)</strong>El manual que te ahorrará horas y horas de preparación de tus consultas para que aprendas a hacer consultas sin tener que estar horas estudiándote la carta o escribiéndotela antes de que llegue el consultante.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Paso a paso para tu proyecto</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Paso a paso para tu proyecto</strong>Recibe una hoja de ruta clara para definir tu proyecto. Cuál es el primer paso que tienes que dar para visibilizar lo que haces.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Creación de tu oferta ideal</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Creación de tu oferta ideal</strong>Te ayudamos a comprender qué es lo que quieres ofrecer realmente al mundo. Un libro, sesiones uno a uno, talleres grupales, formaciones...</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Clases semanales de Q y A</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Clases semanales de Q y A</strong>Participa en sesiones en vivo donde puedes traer todas las cartas de tus pacientes que quieras. Y donde podremos hablar en directo de tu paso a paso sobre cómo te vas a visibilizar, cómo vas a hacer público lo que tú haces.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Mastermind grupal de terapeutas</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Mastermind grupal de terapeutas</strong>Encuentros de todos los terapeutas que estamos trabajando nuestros proyectos para compartir estrategias y hacer sinergias.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Bonus: Cómo hacer tu newsletter</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Bonus: Cómo hacer tu newsletter</strong>Aprende a crear tu propia newsletter. Aprende cómo funciona y utiliza la escritura para hacerle llegar a tu público tus conocimientos.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Apoyo ilimitado a tu emprendimiento</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Apoyo ilimitado a tu emprendimiento</strong>Seremos tu apoyo ilimitado ante todas las dudas que surjan en tu proceso de emprendimiento: con quién asociarte, cuál es tu primer paso, cómo comprender bien qué es lo que quieren tus pacientes o tu público...</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Diagnosticar profesionalmente</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Diagnosticar profesionalmente</strong>Cómo tener una técnica infalible para estar totalmente seguro dentro de una consulta de que lo estás haciendo bien y estás apoyando realmente a tu paciente.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Acompañamiento a crear tu web y RRSS</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Acompañamiento a crear tu web y RRSS</strong>A través de las masterminds y de las clases grupales y de un bonus específico de este programa, te acompañamos a crear tu propio mensaje, tu forma única de comunicar a los demás lo que haces.</div></div></li>
                         </ul>
                     </div>
                      <div class="feature-section"><div class="feature-section-title">No incluye</div>
                         <ul class="feature-list">
-                            <li><span class="feature-icon not-included">×</span><span class="feature-text">Cómo crear un sistema de ventas</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">En esta opción, no vamos a crear ningún anuncio online ni sistema de ventas automatizado.</div></div></li>
-                            <li><span class="feature-icon not-included">×</span><span class="feature-text">Cómo crear una comunidad en Circle.so</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Las herramientas y mentoría para crear tu propia comunidad en Circle son exclusivas del plan Lidera tu Tribu.</div></div></li>
-                            <li><span class="feature-icon not-included">×</span><span class="feature-text">Dónde alojar tu propia formación online</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Las herramientas y mentoría para alojar tu propia formación online son exclusivas del plan Lidera tu Tribu.</div></div></li>
+                            <li><span class="feature-icon not-included">×</span><span class="feature-text">Cómo crear un sistema de ventas</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Cómo crear un sistema de ventas</strong>No incluye la creación de ningún anuncio online ni sistema de ventas automatizado.</div></div></li>
+                            <li><span class="feature-icon not-included">×</span><span class="feature-text">Cómo crear una comunidad en Circle.so</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Cómo crear una comunidad en Circle.so</strong>No incluye las herramientas y mentoría para crear tu propia comunidad en Circle, que son exclusivas del plan Lidera tu Tribu.</div></div></li>
+                            <li><span class="feature-icon not-included">×</span><span class="feature-text">Dónde alojar tu propia formación online</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Dónde alojar tu propia formación online</strong>No incluye las herramientas y mentoría para alojar tu propia formación online, que son exclusivas del plan Lidera tu Tribu.</div></div></li>
+                        </ul>
+                    </div>
+                     <div class="feature-section"><div class="feature-section-title">Solo Anual</div>
+                        <ul class="feature-list">
+                            <li><span class="feature-icon bonus-icon">✨</span><span class="feature-text">Sesión de Oráculo cada mes</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Sesión de Oráculo cada mes</strong>Participa en una sesión mensual de Oráculo para obtener guía y claridad sobre tus próximos pasos.</div></div></li>
+                            <li><span class="feature-icon bonus-icon">🎁</span><span class="feature-text">Regalo sorpresa</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Regalo sorpresa</strong>Un obsequio especial y personalizado que te revelaremos durante nuestra llamada inicial para darte la bienvenida a la escuela.</div></div></li>
+                            <li><span class="feature-icon bonus-icon">📖</span><span class="feature-text">Manual Areté</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Manual Areté</strong>Accede a nuestro manual exclusivo que te guiará paso a paso en la preparación y ejecución de una lectura profesional, ahorrándote horas de trabajo.</div></div></li>
                         </ul>
                     </div>
                 </div>
@@ -239,15 +264,23 @@
                     <div class="special-offer">✨ Si compras la opción de los dos años, te llevas una sesión uno a uno trimestral más sesiones de mensuales y el regalo sorpresa que te contamos en la llamada de bienvenida</div>
                 </div>
                 <div class="card-body">
-                    <div class="feature-section"><div class="feature-section-title">TODO lo anterior y además Creación de un sistema de ventas y/o de tu comunidad online</div></div>
+                    <div class="feature-section"><div class="feature-section-title cumulative-title">Todo lo de Cyclus, Conecta con tu Vocación, Guía Vocacional y además:</div></div>
                     <div class="feature-section"><div class="feature-section-title">Creación de un sistema de ventas y/o de tu comunidad online</div>
                         <ul class="feature-list">
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Acompañamiento al liderazgo de tu comunidad</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Aprende a crear, gestionar y dinamizar una comunidad online próspera que apoye a tus miembros y te dé un negocio realmente vocacional.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Creación de tus anuncios online</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Domina las bases de la publicidad en redes sociales para atraer a tus clientes ideales de forma predecible y rentable.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Tu sistema de venta según tu carta natal</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Diseña un sistema automatizado que venda tus cursos y servicios 24/7, dándote libertad y estabilidad económica.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Cómo producir contenidos</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Aprende los secretos para grabar, producir vídeos y audios de alta calidad que te posicionen como un experto.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Apoyo ilimitado a la visibilización de tu proyecto</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Te apoyaremos en todas las técnicas y estrategias que quieras utilizar e implementar para conseguir que lo que tú haces sea público de forma vocacional, rentable y coherente para ti.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Gestión de tu canal de Youtube, RRSS o web</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Te asesoramos en cómo deben ser tus canales de comunicación con tu público ideal.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Acompañamiento al liderazgo de tu comunidad</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Acompañamiento al liderazgo de tu comunidad</strong>Aprende a crear, gestionar y dinamizar una comunidad online próspera que apoye a tus miembros y te dé un negocio realmente vocacional.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Creación de tus anuncios online</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Creación de tus anuncios online</strong>Domina las bases de la publicidad en redes sociales para atraer a tus clientes ideales de forma predecible y rentable.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Tu sistema de venta según tu carta natal</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Tu sistema de venta según tu carta natal</strong>Diseña un sistema automatizado que venda tus cursos y servicios 24/7, dándote libertad y estabilidad económica.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Cómo producir contenidos</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Cómo producir contenidos</strong>Aprende los secretos para grabar, producir vídeos y audios de alta calidad que te posicionen como un experto.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Apoyo ilimitado a la visibilización de tu proyecto</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Apoyo ilimitado a la visibilización de tu proyecto</strong>Te apoyaremos en todas las técnicas y estrategias que quieras utilizar e implementar para conseguir que lo que tú haces sea público de forma vocacional, rentable y coherente para ti.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Gestión de tu canal de Youtube, RRSS o web</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Gestión de tu canal de Youtube, RRSS o web</strong>Te asesoramos en cómo deben ser tus canales de comunicación con tu público ideal.</div></div></li>
+                        </ul>
+                    </div>
+                     <div class="feature-section"><div class="feature-section-title">Solo Anual</div>
+                        <ul class="feature-list">
+                            <li><span class="feature-icon bonus-icon">✨</span><span class="feature-text">Sesión de Oráculo cada mes</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Sesión de Oráculo cada mes</strong>Participa en una sesión mensual de Oráculo para obtener guía y claridad sobre tus próximos pasos.</div></div></li>
+                            <li><span class="feature-icon bonus-icon">🎁</span><span class="feature-text">Regalo sorpresa</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Regalo sorpresa</strong>Un obsequio especial y personalizado que te revelaremos durante nuestra llamada inicial para darte la bienvenida a la escuela.</div></div></li>
+                            <li><span class="feature-icon bonus-icon">📖</span><span class="feature-text">Manual Areté</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Manual Areté</strong>Accede a nuestro manual exclusivo que te guiará paso a paso en la preparación y ejecución de una lectura profesional, ahorrándote horas de trabajo.</div></div></li>
+                            <li><span class="feature-icon bonus-icon">👤</span><span class="feature-text">Sesión uno a uno trimestral</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Sesión uno a uno trimestral</strong>Cada trimestre, tendrás una sesión privada y estratégica con nosotros para revisar tu progreso, resolver bloqueos y planificar los siguientes pasos de tu proyecto.</div></div></li>
                         </ul>
                     </div>
                 </div>
@@ -260,27 +293,20 @@
         document.addEventListener('DOMContentLoaded', function() {
             const tooltipIcons = document.querySelectorAll('.tooltip-icon');
 
-            // Toggle tooltip en el clic del icono
             tooltipIcons.forEach(icon => {
                 icon.addEventListener('click', function(event) {
-                    event.stopPropagation(); // Previene que el clic en el documento se dispare inmediatamente
-                    
+                    event.stopPropagation();
                     const tooltipText = this.nextElementSibling;
                     const isVisible = tooltipText.classList.contains('show');
-
-                    // Oculta todos los tooltips abiertos
                     document.querySelectorAll('.tooltip-text.show').forEach(openTooltip => {
                         openTooltip.classList.remove('show');
                     });
-
-                    // Si no estaba visible, muéstralo
                     if (!isVisible && tooltipText) {
                         tooltipText.classList.add('show');
                     }
                 });
             });
 
-            // Oculta los tooltips al hacer clic en cualquier otro lugar
             document.addEventListener('click', function() {
                 document.querySelectorAll('.tooltip-text.show').forEach(tooltip => {
                     tooltip.classList.remove('show');
