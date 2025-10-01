@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="theme-color" content="#6B46C1">
+    <link rel="icon" type="image/png" href="TU_LOGO_AQUI.png">
+    <title>Analizando tu carta natal - Raquel Madrigal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #1a0b2e 0%, #2d1b4e 50%, #4a2c6d 100%);
+            min-height: 100vh;
+            min-height: calc(var(--vh, 1vh) * 100);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #f7f3ff;
+            overflow: hidden;
+            padding: 15px;
+            margin: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            position: relative;
+        }
+
+        /* Estrellas de fondo */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 20% 30%, white, transparent),
+                radial-gradient(2px 2px at 60% 70%, white, transparent),
+                radial-gradient(1px 1px at 50% 50%, white, transparent),
+                radial-gradient(1px 1px at 80% 10%, white, transparent),
+                radial-gradient(2px 2px at 90% 60%, white, transparent),
+                radial-gradient(1px 1px at 33% 80%, white, transparent);
+            background-size: 200% 200%;
+            animation: twinkle 8s ease-in-out infinite;
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 0.9; }
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: clamp(1.75rem, 6vw, 2.25rem);
+            font-weight: 700;
+            color: #f7d794;
+            margin-bottom: 25px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+            line-height: 1.2;
+            padding: 0 10px;
+            text-shadow: 0 2px 10px rgba(247, 215, 148, 0.3);
+        }
+
+        .progress-container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 100px;
+            padding: 6px;
+            box-shadow: 0 4px 20px rgba(107, 70, 193, 0.3);
+            margin-bottom: 25px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.3s forwards;
+            width: 100%;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            backdrop-filter: blur(10px);
+        }
+
+        .progress-bar {
+            height: clamp(24px, 5vw, 35px);
+            background: linear-gradient(90deg, #6B46C1 0%, #9D7CE8 35%, #f7d794 100%);
+            border-radius: 100px;
+            width: 0%;
+            transition: width 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(107, 70, 193, 0.5);
+        }
+
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.5),
+                transparent
+            );
+            transform: translateX(-100%);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        .status-text {
+            font-size: clamp(1.125rem, 4vw, 1.375rem);
+            color: #e8dff5;
+            margin-top: 20px;
+            min-height: 45px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.6s forwards;
+            padding: 0 15px;
+            line-height: 1.4;
+            font-weight: 500;
+        }
+
+        .loading-dots {
+            display: inline-block;
+            margin-left: 5px;
+        }
+
+        .loading-dots span {
+            display: inline-block;
+            width: clamp(8px, 2vw, 10px);
+            height: clamp(8px, 2vw, 10px);
+            border-radius: 50%;
+            background: #f7d794;
+            margin: 0 3px;
+            opacity: 0;
+            animation: dotPulse 1.4s infinite ease-in-out;
+            vertical-align: middle;
+        }
+
+        .loading-dots span:nth-child(1) {
+            animation-delay: -0.32s;
+        }
+
+        .loading-dots span:nth-child(2) {
+            animation-delay: -0.16s;
+        }
+
+        @keyframes dotPulse {
+            0%, 80%, 100% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            40% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .pulse-circle {
+            position: fixed;
+            width: clamp(40px, 10vw, 60px);
+            height: clamp(40px, 10vw, 60px);
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(107, 70, 193, 0.3), transparent);
+            animation: pulse 3s ease-out infinite;
+            pointer-events: none;
+        }
+
+        .pulse-circle.gold {
+            background: radial-gradient(circle, rgba(247, 215, 148, 0.2), transparent);
+        }
+
+        .pulse-circle:nth-child(1) {
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+        .pulse-circle:nth-child(2) {
+            top: 60%;
+            right: 5%;
+            animation-delay: 0.5s;
+        }
+
+        .pulse-circle:nth-child(3) {
+            bottom: 10%;
+            left: 15%;
+            animation-delay: 1s;
+        }
+
+        .pulse-circle:nth-child(4) {
+            top: 30%;
+            right: 20%;
+            animation-delay: 1.5s;
+            width: clamp(30px, 8vw, 50px);
+            height: clamp(30px, 8vw, 50px);
+        }
+
+        .pulse-circle:nth-child(5) {
+            bottom: 30%;
+            right: 10%;
+            animation-delay: 2s;
+            width: clamp(50px, 12vw, 70px);
+            height: clamp(50px, 12vw, 70px);
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(0.8);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.3);
+                opacity: 0.2;
+            }
+            100% {
+                transform: scale(0.8);
+                opacity: 0.5;
+            }
+        }
+
+        .icon-container {
+            margin-bottom: 30px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.1s forwards;
+        }
+
+        .astro-symbol {
+            width: clamp(80px, 20vw, 120px);
+            height: clamp(80px, 20vw, 120px);
+            margin: 0 auto;
+            position: relative;
+            animation: rotate360 20s linear infinite;
+        }
+
+        .astro-symbol::before {
+            content: '✨';
+            position: absolute;
+            font-size: clamp(60px, 15vw, 90px);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: gentleFloat 3s ease-in-out infinite;
+            filter: drop-shadow(0 4px 20px rgba(247, 215, 148, 0.5));
+        }
+
+        @keyframes rotate360 {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes gentleFloat {
+            0%, 100% {
+                transform: translate(-50%, -50%) translateY(0);
+            }
+            50% {
+                transform: translate(-50%, -50%) translateY(-10px);
+            }
+        }
+
+        /* Media queries */
+        @media (max-width: 375px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                margin-bottom: 20px;
+                font-size: 1.5rem;
+            }
+            
+            .status-text {
+                margin-top: 15px;
+                font-size: 1rem;
+            }
+            
+            .icon-container {
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (min-height: 800px) {
+            .icon-container {
+                margin-bottom: 40px;
+            }
+            
+            h1 {
+                margin-bottom: 35px;
+            }
+            
+            .progress-container {
+                margin-bottom: 35px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                padding: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="pulse-circle"></div>
+    <div class="pulse-circle gold"></div>
+    <div class="pulse-circle"></div>
+    <div class="pulse-circle gold"></div>
+    <div class="pulse-circle"></div>
+    
+    <div class="container">
+        <div class="icon-container">
+            <div class="astro-symbol"></div>
+        </div>
+        
+        <h1>Identificando tu barrera específica...</h1>
+        
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        
+        <div class="status-text" id="statusText">
+            Entendiendo tu frustración principal<span class="loading-dots"><span></span><span></span><span></span></span>
+        </div>
+    </div>
+
+    <script>
+        const progressBar = document.getElementById('progressBar');
+        const statusText = document.getElementById('statusText');
+        
+        // Función para obtener TODOS los parámetros de la URL
+        function getAllURLParameters() {
+            const params = new URLSearchParams(window.location.search);
+            const allParams = {};
+            
+            for (const [key, value] of params) {
+                allParams[key] = value;
+            }
+            
+            return {
+                ...allParams,
+                A: parseInt(params.get('A')) || 0,
+                B: parseInt(params.get('B')) || 0,
+                C: parseInt(params.get('C')) || 0,
+                D: parseInt(params.get('D')) || 0
+            };
+        }
+        
+        // Función para obtener parámetros de puntuación
+        function getURLParameters() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                A: parseInt(params.get('A')) || 0,
+                B: parseInt(params.get('B')) || 0,
+                C: parseInt(params.get('C')) || 0,
+                D: parseInt(params.get('D')) || 0
+            };
+        }
+        
+        // Función para determinar el resultado ganador
+        function determineResult() {
+            const scores = getURLParameters();
+            let maxScore = 0;
+            let result = 'A';
+            let ties = [];
+            
+            for (const [letter, score] of Object.entries(scores)) {
+                if (score > maxScore) {
+                    maxScore = score;
+                    result = letter;
+                    ties = [letter];
+                } else if (score === maxScore && score > 0) {
+                    ties.push(letter);
+                }
+            }
+            
+            // Orden de prioridad en caso de empate: A > B > C > D
+            if (ties.length > 1) {
+                const priority = ['A', 'B', 'C', 'D'];
+                for (const letter of priority) {
+                    if (ties.includes(letter)) {
+                        result = letter;
+                        break;
+                    }
+                }
+            }
+            
+            return result;
+        }
+        
+        // Función para construir la URL con todos los parámetros
+        function buildRedirectURL(baseURL) {
+            const allParams = getAllURLParameters();
+            const params = new URLSearchParams();
+            
+            for (const [key, value] of Object.entries(allParams)) {
+                if (value !== undefined && value !== null && value !== '') {
+                    params.append(key, value);
+                }
+            }
+            
+            const separator = baseURL.includes('?') ? '&' : '?';
+            return `${baseURL}${separator}${params.toString()}`;
+        }
+        
+        // Función para obtener la URL de redirección según el resultado
+        function getRedirectURL(result) {
+            const baseURLs = {
+                'A': 'https://test.vocacionante.com/resultado-imitador',      // El Imitador
+                'B': 'https://test.vocacionante.com/resultado-invisible',     // El Invisible
+                'C': 'https://test.vocacionante.com/resultado-silencioso',    // El Silencioso
+                'D': 'https://test.vocacionante.com/resultado-desorientado'   // El Desorientado
+            };
+            
+            const baseURL = baseURLs[result] || baseURLs['A'];
+            return buildRedirectURL(baseURL);
+        }
+        
+        // Mensajes personalizados para astrología
+        const messages = [
+            'Entendiendo tu frustración principal',
+            'Detectando el nudo que te atasca',
+            'Detectando tu patrón de autosabotaje',
+            'Descubriendo la raíz de tu bloqueo',
+            'Detectando si es identidad, valor, comunicación o estrategia',
+            'Comparando con más de 300 casos documentados',
+            'He encontrado 136 casos similares al tuyo',
+            'Preparando tu diagnóstico personalizado'
+        ];
+        
+        let messageIndex = 0;
+        let progress = 0;
+        
+        function updateMessage() {
+            if (messageIndex < messages.length) {
+                statusText.innerHTML = messages[messageIndex] + '<span class="loading-dots"><span></span><span></span><span></span></span>';
+                messageIndex++;
+            }
+        }
+        
+        function updateProgress() {
+            // Duración: 16 segundos (100/160 = 0.625 por cada 100ms)
+            progress += 0.625;
+            progressBar.style.width = Math.min(progress, 100) + '%';
+            
+            if (progress >= 100) {
+                clearInterval(progressInterval);
+                setTimeout(() => {
+                    const finalResult = determineResult();
+                    const redirectURL = getRedirectURL(finalResult);
+                    
+                    statusText.innerHTML = '<span style="font-size: 1.1em; color: #f7d794; font-weight: 600;">¡Tu diagnóstico está listo! ✨</span>';
+                    
+                    setTimeout(() => {
+                        window.location.href = redirectURL;
+                    }, 1000);
+                }, 500);
+            }
+        }
+        
+        const messageInterval = setInterval(updateMessage, 2000); // Cambiar cada 2 segundos (16/8 = 2)
+        const progressInterval = setInterval(updateProgress, 100);
+        
+        setTimeout(() => {
+            updateProgress();
+        }, 500);
+        
+        // Debug en consola
+        console.log('Parámetros recibidos:', getAllURLParameters());
+        console.log('Resultado determinado:', determineResult());
+        console.log('URL de redirección:', getRedirectURL(determineResult()));
+        
+        // Prevenir zoom en móviles
+        document.addEventListener('touchstart', function(event) {
+            if (event.touches.length > 1) {
+                event.preventDefault();
+            }
+        });
+        
+        // Ajustar altura en móviles
+        function setViewportHeight() {
+            const vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+        
+        setViewportHeight();
+        window.addEventListener('resize', setViewportHeight);
+    </script>
+</body>
+</html>
