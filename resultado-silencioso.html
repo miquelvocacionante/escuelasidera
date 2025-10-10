@@ -171,6 +171,15 @@
             margin-top: -10px;
             font-style: italic;
         }
+        
+        .video-title {
+            font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+            font-style: italic;
+            opacity: 0.9;
+            margin-top: -5px;
+            margin-bottom: 20px;
+            color: #e8dff5;
+        }
 
         .final-key {
             margin-top: 30px;
@@ -185,11 +194,26 @@
 
         /* --- ESTILOS PARA EL VIDEO --- */
         .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* Proporción 16:9 */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
             margin-top: 20px;
             margin-bottom: 20px;
             border-radius: 12px;
-            overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            cursor: pointer;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
         }
     </style>
 </head>
@@ -210,15 +234,19 @@
         <p>Tienes conocimiento pero no sabes qué decir para llamar la atención. Te sientes ridículo visibilizándote porque <strong>no has descubierto tu estilo de visibilidad en tu carta.</strong></p>
         
         <h4>Cómo solucionarlo:</h4>
-        <p><strong>Mira este video de 15 min</strong> en el que aprendreás cómo <strong>vivir de tu proyecto</strong> astrológico:</p>
+        
+        <p><strong>Mira este video:</strong></p>
+        <p class="video-title">Aprenderás cómo <strong>vivir de tu proyecto</strong> astrológico.</p>
+
 
         <div class="video-container">
-            <div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;">
-                <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
-                    <!-- El video es el mismo, ya que no se especificó uno nuevo -->
-                    <iframe src="https://fast.wistia.net/embed/iframe/bc4bpa34wi?web_component=true&seo=true" title="Editada Presentación mayo 2024 completa Video" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" width="100%" height="100%"></iframe>
-                </div>
-            </div>
+            <iframe 
+                src="https://www.youtube.com/embed/6NY9s6O_Rt8?controls=0&rel=0&showinfo=0&modestbranding=1&cc_load_policy=1&cc_lang_pref=es" 
+                title="YouTube video player" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen>
+            </iframe>
         </div>
         
         <p class="final-key">
@@ -226,9 +254,6 @@
         </p>
 
     </div>
-
-    <!-- Script requerido por el reproductor de Wistia -->
-    <script src="https://fast.wistia.net/player.js" async></script>
 
     <!-- Script para ajustar la altura en móviles (Opcional, pero bueno conservarlo) -->
     <script>
@@ -239,5 +264,37 @@
         setViewportHeight();
         window.addEventListener('resize', setViewportHeight);
     </script>
+
+    <!-- ========= INICIO: CÓDIGO PARA SEGUIMIENTO DE CLIC EN VÍDEO ========= -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const videoContainer = document.querySelector('.video-container');
+    
+            if (videoContainer) {
+                videoContainer.addEventListener('click', function() {
+                    
+                    console.log('Video clicked! Firing tracking events.'); 
+    
+                    if (typeof fbq === 'function') {
+                        fbq('trackCustom', 'Click_VideoResultado', {
+                            tipo_barrera: 'C_Silencioso',
+                            nombre_barrera: 'Visibilidad Natural',
+                            nombre_test: 'Test Barreras Astrologos'
+                        });
+                    }
+    
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'click_video_resultado', {
+                            'event_category': 'Test Barreras Astrologos',
+                            'event_label': 'C_Silencioso - Visibilidad Natural'
+                        });
+                    }
+    
+                }, { once: true }); 
+            }
+        });
+    </script>
+    <!-- ========= FIN: CÓDIGO PARA SEGUIMIENTO DE CLIC EN VÍDEO ========= -->
+
 </body>
 </html>
