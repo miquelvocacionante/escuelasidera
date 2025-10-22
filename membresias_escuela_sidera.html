@@ -164,7 +164,7 @@
         <img src="https://storage.mlcdn.com/account_image/876411/zbChJ3gbpMAhlpfWcsvtJcuTCyhy6V0dgjA87dCm.png" alt="Escuela Sidera Logo">
         <h2 id="pricing-title">Membresías</h2>
     </div>
-    <p class="offer-subtitle">Fecha límite para entrar bajo estas condiciones hasta el <b>1 de noviembre</b><br>(dos años al precio de uno más condiciones especiales)</p>
+    <p class="offer-subtitle">Fecha límite para entrar bajo estas condiciones hasta el <b>1 de noviembre</b><br>(dos años alprecio de uno más condiciones especiales)</p>
 
     <div class="plan-cards-container">
         <div class="plan-cards">
@@ -317,7 +317,7 @@
                 <div class="card-footer"><a href="https://espacio.vocacionante.com/landing-guia-vocacional" target="_blank" class="btn-cta">Ver programa</a></div>
             </div>
 
-            <!-- TARJETA 4: LIDERA (ACTUALIZADA Y CORREGIDA) -->
+            <!-- TARJETA 4: LIDERA (ACTUALIZADA) -->
             <div class="plan-card lidera">
                 <div class="card-header">
                     <h3>Lidera tu Tribu</h3>
@@ -348,15 +348,21 @@
                             <li><span class="feature-icon bonus-icon">⚠️</span><span class="feature-text"><b>Soporte integral para ti y tu equipo</b></span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Soporte y Equipo</strong>Nos convertimos en tu equipo de apoyo. Puedes traer a tus colaboradores a las clases y preguntarnos cualquier duda técnica, personal o comercial.</div></div></li>
                         </ul>
                     </div>
-                     <div class="feature-section"><div class="feature-section-title">Qué no incluye (para tu empoderamiento)</div>
+                     <div class="feature-section"><div class="feature-section-title">No incluye (para tu autonomía)</div>
                         <ul class="feature-list">
                             <li><span class="feature-icon not-included">×</span><span class="feature-text">Gestión de tus campañas de anuncios</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>No gestionamos tus anuncios por ti.</strong> Te enseñamos a crear, lanzar y optimizar tus propias campañas para que entiendas qué funciona y tengas el control total de tu inversión.</div></div></li>
                             <li><span class="feature-icon not-included">×</span><span class="feature-text">Desarrollo técnico de tu web</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>No programamos tu web por ti.</strong> Te damos las plantillas, el paso a paso y el soporte en las clases para que puedas construirla y gestionarla tú mismo, sin depender de nadie.</div></div></li>
                             <li><span class="feature-icon not-included">×</span><span class="feature-text">Servicio de Community Manager</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>No gestionamos tus redes por ti.</strong> Te enseñamos las estrategias de contenido y liderazgo para que construyas una comunidad auténtica y conectada con tu mensaje único.</div></div></li>
                         </ul>
                     </div>
+                    <div class="feature-section"><div class="feature-section-title">Solo Anual</div>
+                        <ul class="feature-list">
+                            <li><span class="feature-icon bonus-icon">👤</span><span class="feature-text">Dos sesiones 1 a 1 de 2h</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Sesiones estratégicas</strong>Al elegir el plan anual, tienes dos sesiones privadas de dos horas con nosotros. Pueden ser online o presenciales para grabar tu webinar, entrevistarte o desbloquear tu proyecto.</div></div></li>
+                             <li><span class="feature-icon bonus-icon">🎁</span><span class="feature-text">Regalo sorpresa de bienvenida</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Regalo sorpresa</strong>Un obsequio especial y personalizado que te revelaremos durante nuestra llamada inicial para darte la bienvenida a la escuela.</div></div></li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="card-footer"><a href="https://espacio.vocacionante.com/lidera-tu-tribu-online" target="_blank" class="btn-cta">Ver programa</a></div>
+                <div class="card-footer"><a href="https://espacio.vocacionante.com/lidera-tu-tribu-online" target="_blank" class="btn-cta">Agendar llamada</a></div>
             </div>
         </div>
     </div>
@@ -370,22 +376,15 @@
                     event.stopPropagation();
                     const tooltipText = this.nextElementSibling;
                     const isVisible = tooltipText.classList.contains('show');
-                    
-                    // Close all other open tooltips
                     document.querySelectorAll('.tooltip-text.show').forEach(openTooltip => {
-                        if (openTooltip !== tooltipText) {
-                           openTooltip.classList.remove('show');
-                        }
+                        openTooltip.classList.remove('show');
                     });
-
-                    // Toggle the current one
-                    if (tooltipText) {
-                       tooltipText.classList.toggle('show');
+                    if (!isVisible && tooltipText) {
+                        tooltipText.classList.add('show');
                     }
                 });
             });
 
-            // Close tooltips if clicking anywhere else on the page
             document.addEventListener('click', function() {
                 document.querySelectorAll('.tooltip-text.show').forEach(tooltip => {
                     tooltip.classList.remove('show');
