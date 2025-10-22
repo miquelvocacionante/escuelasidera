@@ -66,14 +66,14 @@
             border: 1px solid #d1d5db; flex-shrink: 0;
         }
         .tooltip-text {
-            visibility: hidden; width: 220px; background-color: #333; color: #fff;
+            visibility: hidden; width: 240px; background-color: #333; color: #fff;
             text-align: left; border-radius: 6px; padding: 8px 12px;
             position: absolute; z-index: 100; 
             top: 50%;
             right: calc(100% + 10px);
             transform: translateY(-50%);
             opacity: 0; transition: opacity 0.3s, visibility 0.3s;
-            font-size: 11px; line-height: 1.4; font-weight: normal;
+            font-size: 12px; line-height: 1.5; font-weight: normal;
         }
         .tooltip-text strong {
             display: block;
@@ -108,7 +108,7 @@
 
         .card-header { padding: 20px; text-align: center; border-bottom: 1px solid #e5e7eb; }
         .card-header h3 { font-size: clamp(18px, 4vw, 20px); margin-bottom: 5px; }
-        .card-subtitle { color: #666; font-size: clamp(10px, 2.2vw, 11px); margin-bottom: 15px; font-style: italic; min-height: 40px; }
+        .card-subtitle { color: #666; font-size: clamp(10px, 2.2vw, 12px); margin-bottom: 15px; font-style: italic; min-height: 44px; line-height: 1.4; }
         .card-prices { margin-top: 15px; }
         
         .price-item { padding: 8px 0; }
@@ -124,7 +124,7 @@
         }
         .special-offer {
             background: #fef3c7; color: #92400e; padding: 10px 15px; margin: 15px -20px -20px;
-            font-size: clamp(10px, 2.2vw, 11px); font-weight: 600; text-align: center;
+            font-size: clamp(10px, 2.2vw, 12px); font-weight: 600; text-align: center; line-height: 1.5;
         }
 
         .card-body { padding: 20px; flex-grow: 1; }
@@ -145,10 +145,10 @@
         .feature-text { flex-grow: 1; }
         .feature-icon { margin-right: 10px; flex-shrink: 0; font-size: 16px; }
         .feature-list .included { color: #10b981; }
-        .feature-list .not-included { color: #ef4444; opacity: 0.6; }
+        .feature-list .not-included { color: #ef4444; opacity: 0.7; }
         .feature-list .bonus-icon { color: #f59e0b; }
         
-        .card-footer { padding: 20px; padding-top: 0; }
+        .card-footer { padding: 20px; padding-top: 0; margin-top: auto; }
         .btn-cta {
             display: block; width: 100%; padding: 12px; border: none; border-radius: 10px;
             font-size: clamp(12px, 2.5vw, 14px); font-weight: 600; color: white; cursor: pointer;
@@ -168,7 +168,7 @@
 
     <div class="plan-cards-container">
         <div class="plan-cards">
-            <!-- TARJETA 1: CYCLUS -->
+            <!-- TARJETA 1: CYCLUS (ORIGINAL) -->
             <div class="plan-card cyclus">
                 <div class="card-header">
                     <h3>Membresía Cyclus</h3><p class="card-subtitle">Para conectarte con tus tránsitos personales y con los ritos de paso astrológicos</p>
@@ -178,7 +178,7 @@
                             <div class="price-value">40€<small>/mes</small></div>
                             <div class="permanencia-info">(sin permanencia)</div>
                         </div>
-                        <div class="price-item monthly">
+                        <div class="price-item">
                             <div class="price-label">OFERTA ESPECIAL:</div>
                             <div class="price-value">440€<small> por 24 meses</small></div>
                             <div class="permanencia-info">(de acceso y soporte)</div>
@@ -215,7 +215,7 @@
                 <div class="card-footer"><a href="https://espacio.vocacionante.com/landing-cyclus" target="_blank" class="btn-cta">Ver programa</a></div>
             </div>
 
-            <!-- TARJETA 2: CONECTA -->
+            <!-- TARJETA 2: CONECTA (ORIGINAL) -->
             <div class="plan-card conecta">
                 <div class="card-header">
                     <h3>Conecta con tu Vocación</h3><p class="card-subtitle">Para conocer en profundidad tu carta natal y para aprender herramientas prácticas sobre cómo equilibrarla</p>
@@ -225,7 +225,7 @@
                             <div class="price-value">80€<small>/mes</small></div>
                             <div class="permanencia-info">(sin permanencia)</div>
                         </div>
-                        <div class="price-item monthly">
+                        <div class="price-item">
                             <div class="price-label">OFERTA ESPECIAL:</div>
                             <div class="price-value">990€<small> por 24 meses</small></div>
                             <div class="permanencia-info">(de acceso y soporte)</div>
@@ -263,7 +263,7 @@
                 <div class="card-footer"><a href="https://espacio.vocacionante.com/landing-conecta-con-tu-vocacion" target="_blank" class="btn-cta">Ver programa</a></div>
             </div>
 
-            <!-- TARJETA 3: GUÍA -->
+            <!-- TARJETA 3: GUÍA (ORIGINAL) -->
             <div class="plan-card guia">
                 <div class="card-header">
                     <h3>Guía Vocacional</h3><p class="card-subtitle">Para ser un Guía Astrológico Profesional y aprender a combinarlo con las técnicas que ya conoces, creando tu propio proyecto</p>
@@ -273,7 +273,7 @@
                              <div class="price-value">120€<small>/mes</small></div>
                              <div class="permanencia-info">(sin permanencia)</div>
                          </div>
-                        <div class="price-item monthly">
+                        <div class="price-item">
                             <div class="price-label">OFERTA ESPECIAL:</div>
                             <div class="price-value">1.390€<small> por 24 meses</small></div>
                             <div class="permanencia-info">(de acceso y soporte)</div>
@@ -317,43 +317,42 @@
                 <div class="card-footer"><a href="https://espacio.vocacionante.com/landing-guia-vocacional" target="_blank" class="btn-cta">Ver programa</a></div>
             </div>
 
-            <!-- TARJETA 4: LIDERA -->
+            <!-- TARJETA 4: LIDERA (ACTUALIZADA Y CORREGIDA) -->
             <div class="plan-card lidera">
                 <div class="card-header">
-                    <h3>Lidera tu Tribu</h3><p class="card-subtitle">Para aunar en una sola plataforma a todos tus pacientes, alumnos o clientes creando tu propia tribu</p>
+                    <h3>Lidera tu Tribu</h3>
+                    <p class="card-subtitle">La membresía donde te enseñamos a crear una mentoría terapéutica y a venderla en automático.</p>
                     <div class="card-prices">
                         <div class="price-item monthly">
-                            <div class="price-label">Inversión Mensual:</div>
+                            <div class="price-label">Inversión Mensual</div>
                             <div class="price-value">180€<small>/mes</small></div>
                             <div class="permanencia-info">(sin permanencia)</div>
                         </div>
-                        <div class="price-item monthly">
-                            <div class="price-label">OFERTA ESPECIAL:</div>
-                            <div class="price-value">1.990€<small> por 12 meses</small></div>
-                            <div class="permanencia-info">(de acceso y soporte)</div>
+                        <div class="price-item">
+                            <div class="price-label">Oferta Anual</div>
+                            <div class="price-value">1.990€<small>/año</small></div>
+                            <div class="permanencia-info">(o 3 plazos sin intereses)</div>
                         </div>
                     </div>
-                    <div class="special-offer">✨ Si compras la opción anual, te llevas una sesión uno a uno trimestral y el regalo sorpresa que te contamos en la llamada de bienvenida</div>
+                    <div class="special-offer">✨ La opción anual incluye <b>dos sesiones individuales de 2h</b> (online o presencial) y soporte integral para tu proyecto.</div>
                 </div>
                 <div class="card-body">
-                    <div class="feature-section"><div class="feature-section-title cumulative-title">Todo lo de Cyclus, Conecta con tu Vocación, Guía Vocacional y además:</div></div>
-                    <div class="feature-section"><div class="feature-section-title">Creación de un sistema de ventas y/o de tu comunidad online</div>
+                    <div class="feature-section"><div class="feature-section-title cumulative-title">Todo lo de Cyclus, Conecta, Guía Vocacional y además:</div></div>
+                    <div class="feature-section"><div class="feature-section-title">Crea tu mentoría y sistema de ventas</div>
                         <ul class="feature-list">
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Acompañamiento al liderazgo de tu comunidad</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Acompañamiento al liderazgo de tu comunidad</strong>Aprende a crear, gestionar y dinamizar una comunidad online próspera que apoye a tus miembros y te dé un negocio realmente vocacional.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Creación de tus anuncios online</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Creación de tus anuncios online</strong>Domina las bases de la publicidad en redes sociales para atraer a tus clientes ideales de forma predecible y rentable.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Tu sistema de venta según tu carta natal</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Tu sistema de venta según tu carta natal</strong>Diseña un sistema automatizado que venda tus cursos y servicios 24/7, dándote libertad y estabilidad económica.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Cómo producir contenidos</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Cómo producir contenidos</strong>Aprende los secretos para grabar, producir vídeos y audios de alta calidad que te posicionen como un experto.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Apoyo ilimitado a la visibilización de tu proyecto</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Apoyo ilimitado a la visibilización de tu proyecto</strong>Te apoyaremos en todas las técnicas y estrategias que quieras utilizar e implementar para conseguir que lo que tú haces sea público de forma vocacional, rentable y coherente para ti.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Gestión de tu canal de Youtube, RRSS o web</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Gestión de tu canal de Youtube, RRSS o web</strong>Te asesoramos en cómo deben ser tus canales de comunicación con tu público ideal.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Crea tu mentoría evergreen</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Mentoría Evergreen</strong>Te ayudamos a empaquetar tu conocimiento en una oferta de alto valor que no dependa de lanzamientos agotadores. "Evergreen" significa que tus clientes pueden entrar siempre.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Tu sistema de venta según tu carta natal</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Sistema de Venta Auténtico</strong>Diseñamos una estrategia automatizada, basada en tu diseño astrológico único, para atraer recurrentemente llamadas de personas 100% interesadas en lo que haces.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Producción de contenidos auténticos</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Producción de Contenidos</strong>Aprende los secretos para grabar y producir vídeos, audios o textos de alta calidad que te posicionen como un experto, todo desde tu propia casa.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Crea tu web, comunidad y newsletter</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Tu Plataforma Digital</strong>Te enseñamos a crear tu propia web en Wordpress, tu comunidad en Circle.so y a redactar una newsletter que conecte, dándote las plantillas y el paso a paso.</div></div></li>
+                            <li><span class="feature-icon included">✓</span><span class="feature-text">Usa la IA para acelerar tu crecimiento</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Inteligencia Artificial y Automatizaciones</strong>Aprende a usar herramientas de IA para crear contenido, automatizar tareas y optimizar procesos, para que puedas trabajar la mitad y enfocarte en lo que amas.</div></div></li>
+                            <li><span class="feature-icon bonus-icon">⚠️</span><span class="feature-text"><b>Soporte integral para ti y tu equipo</b></span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Soporte y Equipo</strong>Nos convertimos en tu equipo de apoyo. Puedes traer a tus colaboradores a las clases y preguntarnos cualquier duda técnica, personal o comercial.</div></div></li>
                         </ul>
                     </div>
-                     <div class="feature-section"><div class="feature-section-title">Solo Anual</div>
+                     <div class="feature-section"><div class="feature-section-title">Qué no incluye (para tu empoderamiento)</div>
                         <ul class="feature-list">
-                            <li><span class="feature-icon bonus-icon">💎</span><span class="feature-text">2 años al precio de 1 (hasta el 1 de nov)</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Oferta 2 por 1</strong>Al inscribirte antes de la fecha límite, aseguras el acceso completo al programa durante 24 meses por el precio de una sola anualidad, bloqueando el precio actual.</div></div></li>
-                            <li><span class="feature-icon bonus-icon">✨</span><span class="feature-text">Sesión de Oráculo cada mes</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Sesión de Oráculo cada mes</strong>Participa en una sesión mensual de Oráculo para obtener guía y claridad sobre tus próximos pasos.</div></div></li>
-                            <li><span class="feature-icon bonus-icon">🎁</span><span class="feature-text">Regalo sorpresa</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Regalo sorpresa</strong>Un obsequio especial y personalizado que te revelaremos durante nuestra llamada inicial para darte la bienvenida a la escuela.</div></div></li>
-                            <li><span class="feature-icon bonus-icon">📖</span><span class="feature-text">Manual Areté</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Manual Areté</strong>Accede a nuestro manual exclusivo que te guiará paso a paso en la preparación y ejecución de una lectura profesional, ahorrándote horas de trabajo.</div></div></li>
-                            <li><span class="feature-icon bonus-icon">👤</span><span class="feature-text">Sesión uno a uno trimestral</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Sesión uno a uno trimestral</strong>Cada trimestre, tendrás una sesión privada y estratégica con nosotros para revisar tu progreso, resolver bloqueos y planificar los siguientes pasos de tu proyecto.</div></div></li>
+                            <li><span class="feature-icon not-included">×</span><span class="feature-text">Gestión de tus campañas de anuncios</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>No gestionamos tus anuncios por ti.</strong> Te enseñamos a crear, lanzar y optimizar tus propias campañas para que entiendas qué funciona y tengas el control total de tu inversión.</div></div></li>
+                            <li><span class="feature-icon not-included">×</span><span class="feature-text">Desarrollo técnico de tu web</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>No programamos tu web por ti.</strong> Te damos las plantillas, el paso a paso y el soporte en las clases para que puedas construirla y gestionarla tú mismo, sin depender de nadie.</div></div></li>
+                            <li><span class="feature-icon not-included">×</span><span class="feature-text">Servicio de Community Manager</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>No gestionamos tus redes por ti.</strong> Te enseñamos las estrategias de contenido y liderazgo para que construyas una comunidad auténtica y conectada con tu mensaje único.</div></div></li>
                         </ul>
                     </div>
                 </div>
@@ -371,15 +370,22 @@
                     event.stopPropagation();
                     const tooltipText = this.nextElementSibling;
                     const isVisible = tooltipText.classList.contains('show');
+                    
+                    // Close all other open tooltips
                     document.querySelectorAll('.tooltip-text.show').forEach(openTooltip => {
-                        openTooltip.classList.remove('show');
+                        if (openTooltip !== tooltipText) {
+                           openTooltip.classList.remove('show');
+                        }
                     });
-                    if (!isVisible && tooltipText) {
-                        tooltipText.classList.add('show');
+
+                    // Toggle the current one
+                    if (tooltipText) {
+                       tooltipText.classList.toggle('show');
                     }
                 });
             });
 
+            // Close tooltips if clicking anywhere else on the page
             document.addEventListener('click', function() {
                 document.querySelectorAll('.tooltip-text.show').forEach(tooltip => {
                     tooltip.classList.remove('show');
