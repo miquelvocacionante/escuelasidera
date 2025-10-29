@@ -194,26 +194,12 @@
 
         /* --- ESTILOS PARA EL VIDEO --- */
         .video-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 */
-            height: 0;
-            overflow: hidden;
-            max-width: 100%;
-            background: #000;
             margin-top: 10px;
             margin-bottom: 10px;
             border-radius: 12px;
+            overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
             cursor: pointer;
-        }
-
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
         }
 
         /* --- ESTILO PARA EL BOTÓN DE LLAMADA A LA ACCIÓN (CTA) --- */
@@ -261,15 +247,15 @@
         <p class="video-title">Aprenderás cómo <strong>vivir de tu proyecto</strong> astrológico.</p>
 
 
+        <!-- ========= INICIO: CÓDIGO DE VIDEO WISTIA ========= -->
         <div class="video-container">
-            <iframe 
-                src="https://www.youtube.com/embed/6NY9s6O_Rt8?controls=0&rel=0&showinfo=0&modestbranding=1&cc_load_policy=1&cc_lang_pref=es" 
-                title="YouTube video player" 
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                allowfullscreen>
-            </iframe>
+            <div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;">
+                <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
+                    <iframe src="https://fast.wistia.net/embed/iframe/bc4bpa34wi?web_component=true&seo=true" title="Cómo vivir de tu proyecto astrológico" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" width="100%" height="100%"></iframe>
+                </div>
+            </div>
         </div>
+        <!-- ========= FIN: CÓDIGO DE VIDEO WISTIA ========= -->
         
         <a href="https://vocacionante.com/agendar" class="cta-button">Reservar mi sesión</a>
 
@@ -278,6 +264,9 @@
         </p>
 
     </div>
+
+    <!-- Script requerido por el reproductor de Wistia -->
+    <script src="https://fast.wistia.net/player.js" async></script>
 
     <!-- Script para ajustar la altura en móviles -->
     <script>
@@ -319,35 +308,29 @@
         });
     </script>
     
-    <!-- ========= INICIO: SCRIPT PARA CAPTURAR Y AÑADIR UTMs ========= -->
+    <!-- Script para capturar y añadir UTMs -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Busca el botón de llamada a la acción
             const ctaButton = document.querySelector('.cta-button');
 
             if (ctaButton) {
-                // Obtiene los parámetros de la URL de la página actual
                 const currentParams = new URLSearchParams(window.location.search);
                 const utmParams = new URLSearchParams();
 
-                // Filtra solo los parámetros que son UTM
                 for (const [key, value] of currentParams.entries()) {
                     if (key.startsWith('utm_')) {
                         utmParams.append(key, value);
                     }
                 }
 
-                // Si se encontraron parámetros UTM, se añaden al enlace del botón
                 if (utmParams.toString()) {
                     const baseUrl = ctaButton.href;
-                    // Comprueba si el enlace ya tiene parámetros para usar '?' o '&'
                     const separator = baseUrl.includes('?') ? '&' : '?';
                     ctaButton.href = baseUrl + separator + utmParams.toString();
                 }
             }
         });
     </script>
-    <!-- ========= FIN: SCRIPT PARA CAPTURAR Y AÑADIR UTMs ========= -->
 
 </body>
 </html>
