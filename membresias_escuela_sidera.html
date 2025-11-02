@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Membresías - Escuela Sidera</title>
+    <title>Programas - Escuela Sidera</title>
 
-        <!-- INICIO DE CÓDIGOS DE SEGUIMIENTO -->
+    <!-- INICIO DE CÓDIGOS DE SEGUIMIENTO -->
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-T61K75TJJG"></script>
@@ -13,7 +13,6 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-T61K75TJJG');
     </script>
     
@@ -32,8 +31,6 @@
     </script>
     <!-- End Meta Pixel Code -->
     
-    <!-- FIN DE CÓDIGOS DE SEGUIMIENTO -->
-    
     <link rel="icon" type="image/png" href="https://storage.mlcdn.com/account_image/876411/UFQdjF6LHwd34CREdYv1UADPxEhIKb8Hjloijz8d.png">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -41,6 +38,7 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             background: #f8f9fa;
             padding: 20px;
+            font-size: 16px;
         }
         .pricing {
             max-width: 1400px; margin: 0 auto; background: #fff; border-radius: 20px;
@@ -49,170 +47,128 @@
         .main-header { text-align: center; margin-bottom: 20px; }
         .main-header img { max-width: 100%; height: auto; border-radius: 12px; max-height: 250px; }
         .main-header h2 {
-            font-size: clamp(28px, 5vw, 40px);
+            font-size: clamp(32px, 5vw, 44px);
             margin-top: 20px; color: #222;
-        }
-        .pricing .offer-subtitle {
-            text-align: center; color: #666; margin-bottom: 30px;
-            font-size: clamp(14px, 3vw, 15px); line-height: 1.5;
-        }
-        .pricing .offer-subtitle b { color: #ff5722; }
-
-        .gift-banner {
-            background-color: #fef9c3;
-            border: 2px dashed #f59e0b;
-            color: #92400e;
-            padding: 20px;
-            margin: 20px auto 40px;
-            border-radius: 16px;
-            text-align: center;
-            max-width: 800px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
-        }
-        .gift-banner h4 {
-            font-size: clamp(18px, 4vw, 22px);
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-        .gift-banner p {
-            font-size: clamp(14px, 2.5vw, 16px);
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-        .gift-banner a {
-            display: inline-block;
-            background-color: #f59e0b;
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background-color 0.3s;
-        }
-        .gift-banner a:hover {
-            background-color: #d97706;
         }
         
         .tooltip-container { position: relative; display: inline-flex; align-items: center; margin-left: auto; padding-left: 8px;}
         .tooltip-icon {
-            display: inline-flex; justify-content: center; align-items: center;
-            width: 16px; height: 16px; border-radius: 50%; background-color: #e5e7eb;
-            color: #374151; font-weight: bold; font-size: 10px; cursor: help;
+            display: inline-flex; justify-content: center; align-items: center; width: 18px; height: 18px;
+            border-radius: 50%; background-color: #e5e7eb; color: #374151; font-weight: bold; font-size: 12px; cursor: help;
             border: 1px solid #d1d5db; flex-shrink: 0;
         }
         .tooltip-text {
-            visibility: hidden; width: 240px; background-color: #333; color: #fff;
-            text-align: left; border-radius: 6px; padding: 8px 12px;
-            position: absolute; z-index: 100; 
-            top: 50%;
-            right: calc(100% + 10px);
-            transform: translateY(-50%);
-            opacity: 0; transition: opacity 0.3s, visibility 0.3s;
-            font-size: 12px; line-height: 1.5; font-weight: normal;
+            visibility: hidden; width: 250px; background-color: #333; color: #fff; text-align: left; border-radius: 6px; padding: 10px 14px;
+            position: absolute; z-index: 100; top: 50%; right: calc(100% + 10px); transform: translateY(-50%);
+            opacity: 0; transition: opacity 0.3s, visibility 0.3s; font-size: 13px; line-height: 1.6; font-weight: normal;
         }
-        .tooltip-text strong {
-            display: block;
-            margin-bottom: 5px;
-            color: #f0f0f0;
-        }
+        .tooltip-text strong { display: block; margin-bottom: 5px; color: #f0f0f0; }
         .tooltip-text::after {
-            content: ""; position: absolute; top: 50%; left: 100%;
-            margin-top: -5px; border-width: 5px; border-style: solid; 
+            content: ""; position: absolute; top: 50%; left: 100%; margin-top: -5px; border-width: 5px; border-style: solid; 
             border-color: transparent transparent transparent #333;
         }
-        .tooltip-container:hover .tooltip-text, .tooltip-text.show { 
-            visibility: visible; 
-            opacity: 1; 
-        }
+        .tooltip-container:hover .tooltip-text, .tooltip-text.show { visibility: visible; opacity: 1; }
         .tooltip-icon:focus { outline: none; box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.5); }
 
         .plan-cards-container { margin-top: 30px; }
         .plan-cards { display: grid; gap: 20px; margin-bottom: 30px; }
-        @media (min-width: 768px) and (max-width: 1199px) { .plan-cards { grid-template-columns: repeat(2, 1fr); } }
-        @media (min-width: 1200px) { .plan-cards { grid-template-columns: repeat(4, 1fr); } }
+        @media (min-width: 768px) { .plan-cards { grid-template-columns: 1fr; } }
+        @media (min-width: 1200px) { .plan-cards { grid-template-columns: 1fr; } }
 
         .plan-card {
             background: #fff; border: 2px solid #e5e7eb; border-radius: 16px;
             transition: all 0.3s ease; display: flex; flex-direction: column;
         }
-        .plan-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        .plan-card.cyclus { border-color: #667eea; }
-        .plan-card.conecta { border-color: #10b981; }
-        .plan-card.guia { border-color: #f59e0b; }
-        .plan-card.lidera { border-color: #ef4444; }
+        .plan-card.open { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .plan-card.cyclus.open { border-color: #667eea; }
+        .plan-card.conecta.open { border-color: #10b981; }
+        .plan-card.guia.open { border-color: #f59e0b; }
+        .plan-card.lidera.open { border-color: #ef4444; }
 
-        .card-header { padding: 20px; text-align: center; border-bottom: 1px solid #e5e7eb; }
-        .card-header h3 { font-size: clamp(18px, 4vw, 20px); margin-bottom: 5px; }
-        .card-subtitle { color: #666; font-size: clamp(10px, 2.2vw, 12px); margin-bottom: 15px; font-style: italic; min-height: 44px; line-height: 1.4; }
-        .card-prices { margin-top: 15px; }
+        .card-header-clickable { cursor: pointer; padding: 20px; transition: background-color 0.3s; }
+        .plan-card:not(.open) .card-header-clickable:hover { background-color: #f9fafb; }
+        .card-header-content { text-align: center; }
+        .card-header-content h3 { font-size: clamp(20px, 4vw, 24px); margin-bottom: 5px; }
+        .card-header-content .card-subtitle {
+            color: #666;
+            font-size: clamp(15px, 2.4vw, 17px);
+            margin-bottom: 20px;
+            font-style: italic;
+            line-height: 1.5;
+        }
         
-        .price-item { padding: 8px 0; }
-        .price-label { font-size: clamp(10px, 2.2vw, 12px); color: #666; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
-        .price-value { font-size: clamp(20px, 4vw, 24px); font-weight: 700; color: #333; }
-        .price-value small { font-size: clamp(12px, 2.2vw, 14px); color: #666; font-weight: normal; }
-        .permanencia-info {
-            font-size: 11px;
-            font-weight: normal;
-            color: #888;
-            margin-top: 4px;
+        .card-collapsible-content {
+            max-height: 0; overflow: hidden;
+            transition: max-height 0.7s ease-in-out, padding 0.5s ease;
+            padding: 0 20px;
+        }
+        .plan-card.open .card-collapsible-content {
+             max-height: 2500px;
+             padding: 0 20px 20px;
         }
 
-        .card-body { padding: 20px; flex-grow: 1; }
+        .card-prices { margin-top: 15px; border-top: 1px solid #e5e7eb; padding-top: 20px; text-align: center; }
+        .price-item { padding: 8px 0; }
+        .price-label { font-size: clamp(11px, 2.2vw, 13px); color: #666; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .price-value { font-size: clamp(22px, 4vw, 26px); font-weight: 700; color: #333; }
+        .price-value small { font-size: clamp(13px, 2.2vw, 15px); color: #666; font-weight: normal; }
+        .permanencia-info { font-size: 12px; font-weight: normal; color: #888; margin-top: 4px; }
+
+        .card-body { padding-top: 20px; }
         .feature-section { margin-bottom: 20px; }
         .feature-section-title {
-            font-size: clamp(11px, 2.2vw, 12px); font-weight: 700; color: #3163bd;
+            font-size: clamp(12px, 2.2vw, 14px); font-weight: 700; color: #3163bd;
             margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px;
         }
         .cumulative-title {
-            color: #222;
-            text-transform: none;
-            font-weight: 700;
-            font-size: clamp(13px, 2.5vw, 15px);
+            color: #222; text-transform: none; font-weight: 700; font-size: clamp(14px, 2.5vw, 16px);
         }
         .feature-list { list-style: none; margin: 0; padding: 0; }
         .feature-list li {
-            padding: 8px 0;
-            font-size: clamp(12px, 2.2vw, 13px); /* REGLA RESTAURADA */
-            display: flex;
-            align-items: center;
-            border-bottom: 1px solid #f3f4f6;
+            padding: 10px 0; font-size: clamp(14px, 2.5vw, 16px);
+            display: flex; align-items: center; border-bottom: 1px solid #f3f4f6;
         }
         .feature-list li:last-child { border-bottom: none; }
         .feature-text { flex-grow: 1; }
-        .feature-icon { margin-right: 10px; flex-shrink: 0; font-size: 16px; }
+        .feature-icon { margin-right: 12px; flex-shrink: 0; font-size: 18px; }
         .feature-list .included { color: #10b981; }
         .feature-list .not-included { color: #ef4444; opacity: 0.7; }
         
-        .card-footer { padding: 20px; padding-top: 0; margin-top: auto; }
+        .card-footer { padding: 0; margin-top: auto; }
         .btn-cta {
-            display: block; width: 100%; padding: 12px; border: none; border-radius: 10px;
-            font-size: clamp(12px, 2.5vw, 14px);
-            font-weight: 600; color: white; cursor: pointer;
+            display: block; width: 100%; padding: 14px; border: none; border-radius: 10px;
+            font-size: clamp(14px, 2.5vw, 16px); font-weight: 600; color: white; cursor: pointer;
             transition: all 0.3s ease; text-decoration: none; text-align: center;
             background: linear-gradient(135deg, #667eea, #764ba2);
         }
         .btn-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
+        .btn-expand {
+            display: inline-block; width: auto; padding: 10px 20px;
+            font-size: clamp(13px, 2.2vw, 14px);
+        }
+        .plan-card.open .btn-expand { display: none; }
     </style>
 </head>
 <body>
 <section class="pricing" aria-labelledby="pricing-title">
     <div class="main-header">
         <img src="https://storage.mlcdn.com/account_image/876411/zbChJ3gbpMAhlpfWcsvtJcuTCyhy6V0dgjA87dCm.png" alt="Escuela Sidera Logo">
-        <h2 id="pricing-title">Membresías</h2>
-    </div>
-
-    <div class="gift-banner">
-        <h4>🎁 Regalo del Mes de Noviembre para Programas Anuales</h4>
-        <p>Al unirte a cualquier programa anual este mes, recibirás de regalo nuestro <strong>Curso de Flores de Bach</strong>, valorado en 180€. ¡Una herramienta increíble para tu crecimiento y sanación!</p>
-        <a href="https://espacio.vocacionante.com/landing-curso-flores-de-bach" target="_blank">Más información sobre el curso aquí</a>
+        <h2 id="pricing-title">Los 4 Programas de la Escuela</h2>
     </div>
 
     <div class="plan-cards-container">
         <div class="plan-cards">
-            <!-- TARJETA 1: CYCLUS (CORREGIDA) -->
+            
+            <!-- TARJETA 1: CYCLUS -->
             <div class="plan-card cyclus">
-                <div class="card-header">
-                    <h3>Membresía Cyclus</h3><p class="card-subtitle">Conecta con los ciclos del Sol y la Luna a través de una astrología vivencial, corporal y simbólica.</p>
+                <div class="card-header-clickable">
+                    <div class="card-header-content">
+                        <h3>Membresía Cyclus</h3>
+                        <p class="card-subtitle">Para conectarte con tus tránsitos personales y con los ritos de paso astrológicos</p>
+                        <button type="button" class="btn-cta btn-expand">Ver más</button>
+                    </div>
+                </div>
+                <div class="card-collapsible-content">
                     <div class="card-prices">
                         <div class="price-item">
                             <div class="price-label">Inversión Mensual</div>
@@ -220,160 +176,175 @@
                             <div class="permanencia-info">(sin permanencia)</div>
                         </div>
                     </div>
+                    <div class="card-body">
+                        <div class="feature-section"><div class="feature-section-title">Conéctate con tus propios ciclos y tránsitos</div>
+                            <ul class="feature-list">
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Clases de Conexión Astral</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Clases en vivo cada ciclo</strong>Participa en 3 clases mensuales para vivir la energía de la Luna Nueva, la Luna Llena y el cambio de signo Solar, integrando la astrología en tu cuerpo y ritmo vital.</div></div></li>
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Guía de Siembra Lunar y Solar</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Práctica ancestral adaptada</strong>Aprende la práctica de la Siembra para sincronizarte con los ciclos, establecer intenciones y conectar con la energía disponible mes a mes.</div></div></li>
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Ritos de Paso y Mitología</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Astrología Antropológica</strong>Profundiza en el significado de los ciclos a través de la mitología y aprende a guiar ritos de paso (nacimiento, duelo, uniones) aplicados a la carta natal.</div></div></li>
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Aprende a guiar círculos</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Facilita tus propios espacios</strong>Recibe el manual y las guías para facilitar tus propios círculos y ceremonias astrológicas, ya sea para ti o para tu comunidad.</div></div></li>
+                            </ul>
+                        </div>
+                         <div class="feature-section"><div class="feature-section-title">Acceso al Ecosistema Sidera</div>
+                            <ul class="feature-list">
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Comunidad de Alumnos</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Una tribu para compartir</strong>Espacio central de interacción para compartir procesos, aprendizajes, prácticas y experiencias con otros miembros de la escuela.</div></div></li>
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Aula Técnica</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Autonomía y herramientas</strong>Área de formación complementaria con cursos sobre herramientas digitales, automatización y comunicación para dar soporte práctico a tu vocación.</div></div></li>
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Soporte Ilimitado</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Acompañamiento cercano</strong>Accede al canal de Soporte para resolver cualquier duda astrológica, técnica o personal. El equipo responde sin límite de consultas.</div></div></li>
+                            </ul>
+                        </div>
+                        <div class="feature-section"><div class="feature-section-title">No incluye</div>
+                            <ul class="feature-list">
+                                <li><span class="feature-icon not-included">×</span><span class="feature-text">Interpretación profunda de tu carta</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Foco en los ciclos</strong>Cyclus se centra en la vivencia de los tránsitos. El estudio detallado de tu carta natal personal es el corazón del programa "Conecta con tu Vocación".</div></div></li>
+                                <li><span class="feature-icon not-included">×</span><span class="feature-text">Formación para ser guía profesional</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Base vivencial, no profesional</strong>Este programa te da la base experiencial. La formación para estructurar un método y acompañar a otros se desarrolla en "Guía Vocacional".</div></div></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-footer"><a href="https://espacio.vocacionante.com/landing-cyclus" target="_blank" class="btn-cta">Ver temario</a></div>
                 </div>
-                <div class="card-body">
-                    <div class="feature-section"><div class="feature-section-title">Conéctate con tus propios ciclos y tránsitos</div>
-                        <ul class="feature-list">
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Clases de Conexión Astral</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Clases en vivo cada ciclo</strong>Participa en 3 clases mensuales para vivir la energía de la Luna Nueva, la Luna Llena y el cambio de signo Solar, integrando la astrología en tu cuerpo y ritmo vital.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Guía de Siembra Lunar y Solar</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Práctica ancestral adaptada</strong>Aprende la práctica de la Siembra para sincronizarte con los ciclos, establecer intenciones y conectar con la energía disponible mes a mes.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Ritos de Paso y Mitología</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Astrología Antropológica</strong>Profundiza en el significado de los ciclos a través de la mitología y aprende a guiar ritos de paso (nacimiento, duelo, uniones) aplicados a la carta natal.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Aprende a guiar círculos</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Facilita tus propios espacios</strong>Recibe el manual y las guías para facilitar tus propios círculos y ceremonias astrológicas, ya sea para ti o para tu comunidad.</div></div></li>
-                        </ul>
-                    </div>
-                     <div class="feature-section"><div class="feature-section-title">Acceso al Ecosistema Sidera</div>
-                        <ul class="feature-list">
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Comunidad de Alumnos</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Una tribu para compartir</strong>Espacio central de interacción para compartir procesos, aprendizajes, prácticas y experiencias con otros miembros de la escuela.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Aula Técnica</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Autonomía y herramientas</strong>Área de formación complementaria con cursos sobre herramientas digitales, automatización y comunicación para dar soporte práctico a tu vocación.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Soporte Ilimitado</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Acompañamiento cercano</strong>Accede al canal de Soporte para resolver cualquier duda astrológica, técnica o personal. El equipo responde sin límite de consultas.</div></div></li>
-                        </ul>
-                    </div>
-                    <div class="feature-section"><div class="feature-section-title">No incluye</div>
-                        <ul class="feature-list">
-                            <li><span class="feature-icon not-included">×</span><span class="feature-text">Interpretación profunda de tu carta</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Foco en los ciclos</strong>Cyclus se centra en la vivencia de los tránsitos. El estudio detallado de tu carta natal personal es el corazón del programa "Conecta con tu Vocación".</div></div></li>
-                            <li><span class="feature-icon not-included">×</span><span class="feature-text">Formación para ser guía profesional</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Base vivencial, no profesional</strong>Este programa te da la base experiencial. La formación para estructurar un método y acompañar a otros se desarrolla en "Guía Vocacional".</div></div></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="card-footer"><a href="https://espacio.vocacionante.com/landing-cyclus" target="_blank" class="btn-cta">Ver temario</a></div>
             </div>
 
-            <!-- TARJETA 2: CONECTA (CORREGIDA) -->
+            <!-- TARJETA 2: CONECTA -->
             <div class="plan-card conecta">
-                <div class="card-header">
-                    <h3>Conecta con tu Vocación</h3><p class="card-subtitle">Descubre tu vocación auténtica a través de la interpretación profunda y práctica de tu carta natal.</p>
-                    <div class="card-prices">
+                <div class="card-header-clickable">
+                    <div class="card-header-content">
+                        <h3>Conecta con tu Vocación</h3>
+                        <p class="card-subtitle">Para conocer en profundidad tu carta natal y para aprender herramientas prácticas sobre cómo equilibrarla</p>
+                        <button type="button" class="btn-cta btn-expand">Ver más</button>
+                    </div>
+                </div>
+                <div class="card-collapsible-content">
+                     <div class="card-prices">
                         <div class="price-item">
                             <div class="price-label">Inversión Anual</div>
                             <div class="price-value">990€<small>/año</small></div>
                             <div class="permanencia-info">(o 3 plazos sin intereses)</div>
                         </div>
                     </div>
+                    <div class="card-body">
+                        <div class="feature-section"><div class="feature-section-title cumulative-title">Todo lo de Cyclus y además:</div></div>
+                        <div class="feature-section"><div class="feature-section-title">Conocimiento profundo de tu carta</div>
+                            <ul class="feature-list">
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Interpreta tu Carta Natal completa</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>De cero a la maestría</strong>Aprende a leer todos los elementos de tu carta (planetas, signos, casas, aspectos) para descubrir tus dones, propósito y el hilo de tu destino.</div></div></li>
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Tareas con Feedback Personalizado</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>El corazón del método</strong>Cada tarea es revisada personalmente por el equipo para asegurar que comprendes e integras cada símbolo de tu carta, no solo que repites teoría.</div></div></li>
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Clases semanales de preguntas</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Aprende de casos reales</strong>Participa en clases en vivo con Raquel para resolver dudas sobre tu carta o la de otros, aprendiendo a interpretar con guía directa y cercana.</div></div></li>
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Bonus: Tarot, MTC, Flores de Bach</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Herramientas prácticas de sanación</strong>Un kit de recursos para equilibrar tu carta, incluyendo Medicina Tradicional China, Tarot, Flores de Bach y ejercicios terapéuticos para el día a día.</div></div></li>
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Crea tu Templo Astrológico</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Integración Simbólica y Corporal</strong>Construye un espacio físico y simbólico para conectar con la energía de los planetas a través de tótems, meditaciones y prácticas devocionales.</div></div></li>
+                            </ul>
+                        </div>
+                        <div class="feature-section"><div class="feature-section-title">Beneficios Anuales</div>
+                            <ul class="feature-list">
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Sesión de Oráculo mensual</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Guía y claridad en tu camino</strong>Participa en una sesión mensual de Oráculo para obtener guía y claridad sobre tus próximos pasos y procesos personales.</div></div></li>
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Acceso completo al Aula Virtual</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Autonomía técnica para tu vocación</strong>Accede a cursos y recursos sobre herramientas digitales, automatización y comunicación para dar soporte práctico a tu vocación.</div></div></li>
+                            </ul>
+                        </div>
+                        <div class="feature-section"><div class="feature-section-title">No incluye</div>
+                            <ul class="feature-list">
+                               <li><span class="feature-icon not-included">×</span><span class="feature-text">Metodología de Acompañamiento</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Autoconocimiento profundo</strong>Este programa se centra en ti. El paso para estructurar tu propio método profesional y guiar a otros se da en "Guía Vocacional".</div></div></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-footer"><a href="https://espacio.vocacionante.com/landing-conecta-con-tu-vocacion" target="_blank" class="btn-cta">Ver temario</a></div>
                 </div>
-                <div class="card-body">
-                    <div class="feature-section"><div class="feature-section-title cumulative-title">Todo lo de Cyclus y además:</div></div>
-                    <div class="feature-section"><div class="feature-section-title">Conocimiento profundo de tu carta</div>
-                        <ul class="feature-list">
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Interpreta tu Carta Natal completa</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>De cero a la maestría</strong>Aprende a leer todos los elementos de tu carta (planetas, signos, casas, aspectos) para descubrir tus dones, propósito y el hilo de tu destino.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Tareas con Feedback Personalizado</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>El corazón del método</strong>Cada tarea es revisada personalmente por el equipo para asegurar que comprendes e integras cada símbolo de tu carta, no solo que repites teoría.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Clases semanales de preguntas</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Aprende de casos reales</strong>Participa en clases en vivo con Raquel para resolver dudas sobre tu carta o la de otros, aprendiendo a interpretar con guía directa y cercana.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Bonus: Tarot, MTC, Flores de Bach</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Herramientas prácticas de sanación</strong>Un kit de recursos para equilibrar tu carta, incluyendo Medicina Tradicional China, Tarot, Flores de Bach y ejercicios terapéuticos para el día a día.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Crea tu Templo Astrológico</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Integración Simbólica y Corporal</strong>Construye un espacio físico y simbólico para conectar con la energía de los planetas a través de tótems, meditaciones y prácticas devocionales.</div></div></li>
-                        </ul>
-                    </div>
-                    <div class="feature-section"><div class="feature-section-title">Beneficios Anuales</div>
-                        <ul class="feature-list">
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Sesión de Oráculo mensual</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Guía y claridad en tu camino</strong>Participa en una sesión mensual de Oráculo para obtener guía y claridad sobre tus próximos pasos y procesos personales.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Acceso completo al Aula Virtual</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Autonomía técnica para tu vocación</strong>Accede a cursos y recursos sobre herramientas digitales, automatización y comunicación para dar soporte práctico a tu vocación.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Regalo del mes de bienvenida</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Un obsequio para empezar</strong>Este mes, recibe de regalo el curso de Flores de Bach (valorado en 180€) al unirte al programa anual.</div></div></li>
-                        </ul>
-                    </div>
-                    <div class="feature-section"><div class="feature-section-title">No incluye</div>
-                        <ul class="feature-list">
-                           <li><span class="feature-icon not-included">×</span><span class="feature-text">Metodología de Acompañamiento</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Autoconocimiento profundo</strong>Este programa se centra en ti. El paso para estructurar tu propio método profesional y guiar a otros se da en "Guía Vocacional".</div></div></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="card-footer"><a href="https://espacio.vocacionante.com/landing-conecta-con-tu-vocacion" target="_blank" class="btn-cta">Ver temario</a></div>
             </div>
 
-            <!-- TARJETA 3: GUÍA (CORREGIDA) -->
+            <!-- TARJETA 3: GUÍA -->
             <div class="plan-card guia">
-                <div class="card-header">
-                    <h3>Guía Vocacional</h3><p class="card-subtitle">Transforma tu conocimiento astrológico en una metodología de acompañamiento propia, auténtica y profesional.</p>
-                    <div class="card-prices">
+                <div class="card-header-clickable">
+                    <div class="card-header-content">
+                        <h3>Guía Vocacional</h3>
+                        <p class="card-subtitle">Para ser un Guía Astrológico Profesional y aprender a combinarlo con las técnicas que ya conoces, creando tu propio proyecto</p>
+                        <button type="button" class="btn-cta btn-expand">Ver más</button>
+                    </div>
+                </div>
+                <div class="card-collapsible-content">
+                     <div class="card-prices">
                         <div class="price-item">
                             <div class="price-label">Inversión Anual</div>
                             <div class="price-value">1.390€<small>/año</small></div>
                             <div class="permanencia-info">(o 3 plazos sin intereses)</div>
                         </div>
                     </div>
+                    <div class="card-body">
+                        <div class="feature-section"><div class="feature-section-title cumulative-title">Todo lo de Cyclus, Conecta y además:</div></div>
+                        <div class="feature-section"><div class="feature-section-title">Crea tu método profesional</div>
+                            <ul class="feature-list">
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Define tu Cliente y Problema</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Claridad y enfoque profesional</strong>A través de ejercicios guiados y feedback personalizado, define con precisión a quién ayudas y qué problema real resuelves, creando una base sólida para tu oferta.</div></div></li>
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Diseña tu Método Personal</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Estructura tu sabiduría única</strong>Ordena tu conocimiento en un recorrido propio con fases, objetivos y herramientas. Tareas con revisión detallada del equipo para validar tu proceso.</div></div></li>
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Sesiones Mastermind grupales</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Inteligencia colectiva</strong>Participa en encuentros en grupos reducidos con Miquel y Raquel para afinar tu propuesta, recibir feedback y compartir estrategias con otros profesionales.</div></div></li>
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Comunica tu Vocación</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Encuentra tu voz auténtica</strong>Aprende a explicar lo que haces con un lenguaje claro, simbólico y coherente con tu carta natal, sin usar tecnicismos que alejan.</div></div></li>
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Guía Areté (Manual Astrológico)</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Ahorra horas de preparación</strong>Recibe el manual que te enseña a realizar consultas profesionales sin tener que estudiar la carta durante horas antes de que llegue tu consultante.</div></div></li>
+                            </ul>
+                        </div>
+                        <div class="feature-section"><div class="feature-section-title">Beneficios Anuales</div>
+                             <ul class="feature-list">
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Sesión de Oráculo mensual</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Guía y claridad en tu camino</strong>Participa en una sesión mensual de Oráculo para obtener guía y claridad sobre tus próximos pasos y procesos personales.</div></div></li>
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Acceso completo al Aula Virtual</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Autonomía técnica para tu vocación</strong>Accede a cursos y recursos sobre herramientas digitales, automatización y comunicación para dar soporte práctico a tu vocación.</div></div></li>
+                            </ul>
+                        </div>
+                         <div class="feature-section"><div class="feature-section-title">No incluye</div>
+                            <ul class="feature-list">
+                                <li><span class="feature-icon not-included">×</span><span class="feature-text">Sistema de venta automatizado</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Foco en la metodología</strong>Aquí creas tu servicio y tu método. Las herramientas para crear un sistema de captación y venta online se enseñan en "Lidera tu Tribu".</div></div></li>
+                                <li><span class="feature-icon not-included">×</span><span class="feature-text">Creación de comunidad o web</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>El paso previo a lo digital</strong>Primero se define el método, luego se construye la plataforma. La parte técnica de creación de activos digitales pertenece a "Lidera tu Tribu".</div></div></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-footer"><a href="https://espacio.vocacionante.com/landing-guia-vocacional" target="_blank" class="btn-cta">Ver temario</a></div>
                 </div>
-                <div class="card-body">
-                    <div class="feature-section"><div class="feature-section-title cumulative-title">Todo lo de Cyclus, Conecta y además:</div></div>
-                    <div class="feature-section"><div class="feature-section-title">Crea tu método profesional</div>
-                        <ul class="feature-list">
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Define tu Cliente y Problema</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Claridad y enfoque profesional</strong>A través de ejercicios guiados y feedback personalizado, define con precisión a quién ayudas y qué problema real resuelves, creando una base sólida para tu oferta.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Diseña tu Método Personal</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Estructura tu sabiduría única</strong>Ordena tu conocimiento en un recorrido propio con fases, objetivos y herramientas. Tareas con revisión detallada del equipo para validar tu proceso.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Sesiones Mastermind grupales</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Inteligencia colectiva</strong>Participa en encuentros en grupos reducidos con Miquel y Raquel para afinar tu propuesta, recibir feedback y compartir estrategias con otros profesionales.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Comunica tu Vocación</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Encuentra tu voz auténtica</strong>Aprende a explicar lo que haces con un lenguaje claro, simbólico y coherente con tu carta natal, sin usar tecnicismos que alejan.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Guía Areté (Manual Astrológico)</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Ahorra horas de preparación</strong>Recibe el manual que te enseña a realizar consultas profesionales sin tener que estudiar la carta durante horas antes de que llegue tu consultante.</div></div></li>
-                        </ul>
-                    </div>
-                    <div class="feature-section"><div class="feature-section-title">Beneficios Anuales</div>
-                         <ul class="feature-list">
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Sesión de Oráculo mensual</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Guía y claridad en tu camino</strong>Participa en una sesión mensual de Oráculo para obtener guía y claridad sobre tus próximos pasos y procesos personales.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Acceso completo al Aula Virtual</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Autonomía técnica para tu vocación</strong>Accede a cursos y recursos sobre herramientas digitales, automatización y comunicación para dar soporte práctico a tu vocación.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Regalo del mes de bienvenida</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Un obsequio para empezar</strong>Este mes, recibe de regalo el curso de Flores de Bach (valorado en 180€) al unirte al programa anual.</div></div></li>
-                        </ul>
-                    </div>
-                     <div class="feature-section"><div class="feature-section-title">No incluye</div>
-                        <ul class="feature-list">
-                            <li><span class="feature-icon not-included">×</span><span class="feature-text">Sistema de venta automatizado</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Foco en la metodología</strong>Aquí creas tu servicio y tu método. Las herramientas para crear un sistema de captación y venta online se enseñan en "Lidera tu Tribu".</div></div></li>
-                            <li><span class="feature-icon not-included">×</span><span class="feature-text">Creación de comunidad o web</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>El paso previo a lo digital</strong>Primero se define el método, luego se construye la plataforma. La parte técnica de creación de activos digitales pertenece a "Lidera tu Tribu".</div></div></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="card-footer"><a href="https://espacio.vocacionante.com/landing-guia-vocacional" target="_blank" class="btn-cta">Ver temario</a></div>
             </div>
 
-            <!-- TARJETA 4: LIDERA (CORREGIDA) -->
+            <!-- TARJETA 4: LIDERA -->
             <div class="plan-card lidera">
-                <div class="card-header">
-                    <h3>Lidera tu Tribu</h3>
-                    <p class="card-subtitle">Crea una mentoría profesional y un sistema automatizado para vivir de tu conocimiento con coherencia y estabilidad.</p>
+                <div class="card-header-clickable">
+                    <div class="card-header-content">
+                        <h3>Lidera tu Tribu</h3>
+                        <p class="card-subtitle">La membresía donde te enseñamos a crear una mentoría terapéutica y a venderla en automático.</p>
+                        <button type="button" class="btn-cta btn-expand">Ver más</button>
+                    </div>
+                </div>
+                <div class="card-collapsible-content">
                     <div class="card-prices">
                         <div class="price-item">
                             <div class="price-label">Inversión Anual</div>
-                            <div class="price-value">2.500€<small>/año</small></div>
+                            <div class="price-value">1.990€<small>/año</small></div>
                             <div class="permanencia-info">(o 3 plazos sin intereses)</div>
                         </div>
                     </div>
+                    <div class="card-body">
+                        <div class="feature-section"><div class="feature-section-title cumulative-title">Todo lo de Cyclus, Conecta, Guía y además:</div></div>
+                        <div class="feature-section"><div class="feature-section-title">Crea tu proyecto digital sostenible</div>
+                            <ul class="feature-list">
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Diseña tu Mentoría Evergreen</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Empaqueta tu conocimiento</strong>Te ayudamos a crear una oferta de alto valor que no dependa de lanzamientos agotadores. "Evergreen" significa que tus clientes pueden entrar siempre.</div></div></li>
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Crea tu Sistema de Venta</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Atrae clientes alineados</strong>Diseña un sistema (webinar, anuncios) que atraiga recurrentemente a personas interesadas, alineado con tu energía y tu carta natal.</div></div></li>
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Implementación Técnica Guiada</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Autonomía y soporte real</strong>Aprende a configurar paso a paso todas las herramientas (web, email, pagos, anuncios) con nuestro acompañamiento directo en las clases semanales de Miquel.</div></div></li>
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Producción de Contenidos</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Comunica con profesionalidad</strong>Aprende los secretos para grabar y producir vídeos, audios o textos de alta calidad que te posicionen como un experto, todo desde tu propia casa.</div></div></li>
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">IA para acelerar procesos</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Inteligencia Artificial y Automatización</strong>Aprende a usar herramientas de IA para crear contenido, automatizar tareas y optimizar procesos, para que puedas enfocarte en lo que realmente amas.</div></div></li>
+                            </ul>
+                        </div>
+                        <div class="feature-section"><div class="feature-section-title">Beneficios Anuales Exclusivos</div>
+                            <ul class="feature-list">
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Dos sesiones individuales de 2h</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Acompañamiento estratégico</strong>Tienes dos sesiones privadas con nosotros (online o presencial) para grabar tu webinar, desbloquear tu proyecto o definir tu estrategia.</div></div></li>
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Sesión de Oráculo mensual</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Guía y claridad en tu camino</strong>Participa en una sesión mensual de Oráculo para obtener guía y claridad sobre tus próximos pasos y procesos personales.</div></div></li>
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Acceso completo al Aula Virtual</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Autonomía técnica para tu vocación</strong>Accede a cursos y recursos sobre herramientas digitales, automatización y comunicación para dar soporte práctico a tu vocación.</div></div></li>
+                            </ul>
+                        </div>
+                         <div class="feature-section"><div class="feature-section-title">No incluye (para tu autonomía)</div>
+                            <ul class="feature-list">
+                                <li><span class="feature-icon not-included">×</span><span class="feature-text">Gestión de tus anuncios</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Te enseñamos, no lo hacemos por ti</strong>Aprendes a crear, lanzar y optimizar tus propias campañas para que entiendas qué funciona y tengas el control total de tu inversión.</div></div></li>
+                                <li><span class="feature-icon not-included">×</span><span class="feature-text">Desarrollo técnico de tu web</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Construyes con nuestro apoyo</strong>Te damos las plantillas, el paso a paso y el soporte en las clases para que puedas construirla y gestionarla tú mismo, sin depender de nadie.</div></div></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-footer"><a href="https://espacio.vocacionante.com/lidera-tu-tribu-online" target="_blank" class="btn-cta">Ver temario</a></div>
                 </div>
-                <div class="card-body">
-                    <div class="feature-section"><div class="feature-section-title cumulative-title">Todo lo de Cyclus, Conecta, Guía y además:</div></div>
-                    <div class="feature-section"><div class="feature-section-title">Crea tu proyecto digital sostenible</div>
-                        <ul class="feature-list">
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Diseña tu Mentoría Evergreen</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Empaqueta tu conocimiento</strong>Te ayudamos a crear una oferta de alto valor que no dependa de lanzamientos agotadores. "Evergreen" significa que tus clientes pueden entrar siempre.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Crea tu Sistema de Venta</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Atrae clientes alineados</strong>Diseña un sistema (webinar, anuncios) que atraiga recurrentemente a personas interesadas, alineado con tu energía y tu carta natal.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Implementación Técnica Guiada</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Autonomía y soporte real</strong>Aprende a configurar paso a paso todas las herramientas (web, email, pagos, anuncios) con nuestro acompañamiento directo en las clases semanales de Miquel.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Producción de Contenidos</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Comunica con profesionalidad</strong>Aprende los secretos para grabar y producir vídeos, audios o textos de alta calidad que te posicionen como un experto, todo desde tu propia casa.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">IA para acelerar procesos</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Inteligencia Artificial y Automatización</strong>Aprende a usar herramientas de IA para crear contenido, automatizar tareas y optimizar procesos, para que puedas enfocarte en lo que realmente amas.</div></div></li>
-                        </ul>
-                    </div>
-                    <div class="feature-section"><div class="feature-section-title">Beneficios Anuales Exclusivos</div>
-                        <ul class="feature-list">
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Dos sesiones individuales de 2h</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Acompañamiento estratégico</strong>Tienes dos sesiones privadas con nosotros (online o presencial) para grabar tu webinar, desbloquear tu proyecto o definir tu estrategia.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Sesión de Oráculo mensual</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Guía y claridad en tu camino</strong>Participa en una sesión mensual de Oráculo para obtener guía y claridad sobre tus próximos pasos y procesos personales.</div></div></li>
-                            <li><span class="feature-icon included">✓</span><span class="feature-text">Acceso completo al Aula Virtual</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Autonomía técnica para tu vocación</strong>Accede a cursos y recursos sobre herramientas digitales, automatización y comunicación para dar soporte práctico a tu vocación.</div></div></li>
-                             <li><span class="feature-icon included">✓</span><span class="feature-text">Regalo del mes de bienvenida</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Un obsequio para empezar</strong>Este mes, recibe de regalo el curso de Flores de Bach (valorado en 180€) al unirte al programa anual.</div></div></li>
-                        </ul>
-                    </div>
-                     <div class="feature-section"><div class="feature-section-title">No incluye (para tu autonomía)</div>
-                        <ul class="feature-list">
-                            <li><span class="feature-icon not-included">×</span><span class="feature-text">Gestión de tus anuncios</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Te enseñamos, no lo hacemos por ti</strong>Aprendes a crear, lanzar y optimizar tus propias campañas para que entiendas qué funciona y tengas el control total de tu inversión.</div></div></li>
-                            <li><span class="feature-icon not-included">×</span><span class="feature-text">Desarrollo técnico de tu web</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Construyes con nuestro apoyo</strong>Te damos las plantillas, el paso a paso y el soporte en las clases para que puedas construirla y gestionarla tú mismo, sin depender de nadie.</div></div></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="card-footer"><a href="https://espacio.vocacionante.com/lidera-tu-tribu-online" target="_blank" class="btn-cta">Ver temario</a></div>
             </div>
+
         </div>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // --- SCRIPT PARA TOOLTIPS ---
             const tooltipIcons = document.querySelectorAll('.tooltip-icon');
-
             tooltipIcons.forEach(icon => {
                 icon.addEventListener('click', function(event) {
                     event.stopPropagation();
@@ -391,6 +362,27 @@
             document.addEventListener('click', function() {
                 document.querySelectorAll('.tooltip-text.show').forEach(tooltip => {
                     tooltip.classList.remove('show');
+                });
+            });
+
+            // --- SCRIPT PARA ACORDEÓN DE TARJETAS ---
+            const planCards = document.querySelectorAll('.plan-card');
+            const headers = document.querySelectorAll('.card-header-clickable');
+
+            headers.forEach(header => {
+                header.addEventListener('click', function() {
+                    const currentCard = this.parentElement;
+                    const isOpen = currentCard.classList.contains('open');
+
+                    // Cerrar todas las tarjetas
+                    planCards.forEach(card => {
+                        card.classList.remove('open');
+                    });
+
+                    // Si la tarjeta clickeada no estaba abierta, la abrimos
+                    if (!isOpen) {
+                        currentCard.classList.add('open');
+                    }
                 });
             });
         });
