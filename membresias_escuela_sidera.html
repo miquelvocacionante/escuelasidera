@@ -67,7 +67,10 @@
             content: ""; position: absolute; top: 50%; left: 100%; margin-top: -5px; border-width: 5px; border-style: solid; 
             border-color: transparent transparent transparent #333;
         }
-        .tooltip-container:hover .tooltip-text, .tooltip-text.show { visibility: visible; opacity: 1; }
+        .feature-list li:hover .tooltip-text, .tooltip-text.show {
+            visibility: visible;
+            opacity: 1;
+        }
         .tooltip-icon:focus { outline: none; box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.5); }
 
         .plan-cards-container { margin-top: 30px; }
@@ -90,11 +93,8 @@
         .card-header-content { text-align: center; }
         .card-header-content h3 { font-size: clamp(20px, 4vw, 24px); margin-bottom: 5px; }
         .card-header-content .card-subtitle {
-            color: #666;
-            font-size: clamp(15px, 2.4vw, 17px);
-            margin-bottom: 20px;
-            font-style: italic;
-            line-height: 1.5;
+            color: #666; font-size: clamp(15px, 2.4vw, 17px);
+            margin-bottom: 20px; font-style: italic; line-height: 1.5;
         }
         
         .card-collapsible-content {
@@ -103,8 +103,7 @@
             padding: 0 20px;
         }
         .plan-card.open .card-collapsible-content {
-             max-height: 2500px;
-             padding: 0 20px 20px;
+             max-height: 2500px; padding: 0 20px 20px;
         }
 
         .card-prices { margin-top: 15px; border-top: 1px solid #e5e7eb; padding-top: 20px; text-align: center; }
@@ -127,6 +126,7 @@
         .feature-list li {
             padding: 10px 0; font-size: clamp(14px, 2.5vw, 16px);
             display: flex; align-items: center; border-bottom: 1px solid #f3f4f6;
+            cursor: help;
         }
         .feature-list li:last-child { border-bottom: none; }
         .feature-text { flex-grow: 1; }
@@ -343,47 +343,48 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // --- SCRIPT PARA TOOLTIPS ---
-            const tooltipIcons = document.querySelectorAll('.tooltip-icon');
-            tooltipIcons.forEach(icon => {
-                icon.addEventListener('click', function(event) {
-                    event.stopPropagation();
-                    const tooltipText = this.nextElementSibling;
-                    const isVisible = tooltipText.classList.contains('show');
-                    document.querySelectorAll('.tooltip-text.show').forEach(openTooltip => {
-                        openTooltip.classList.remove('show');
-                    });
-                    if (!isVisible && tooltipText) {
-                        tooltipText.classList.add('show');
-                    }
-                });
-            });
-
-            document.addEventListener('click', function() {
-                document.querySelectorAll('.tooltip-text.show').forEach(tooltip => {
-                    tooltip.classList.remove('show');
-                });
-            });
-
             // --- SCRIPT PARA ACORDEÓN DE TARJETAS ---
             const planCards = document.querySelectorAll('.plan-card');
             const headers = document.querySelectorAll('.card-header-clickable');
 
             headers.forEach(header => {
-                header.addEventListener('click', function() {
+                header.addEventListener('click', function(event) {
                     const currentCard = this.parentElement;
                     const isOpen = currentCard.classList.contains('open');
 
-                    // Cerrar todas las tarjetas
-                    planCards.forEach(card => {
-                        card.classList.remove('open');
-                    });
-
-                    // Si la tarjeta clickeada no estaba abierta, la abrimos
-                    if (!isOpen) {
-                        currentCard.classList.add('open');
+                    // Prevenir el comportamiento por defecto solo si el clic es en el botón
+                    if (event.target.classList.contains('btn-expand')) {
+                        event.preventDefault();
                     }
+
+                    planCards.forEach(card => card.classList.remove('open'));
+                    if (!isOpen) currentCard.classList.add('open');
                 });
+            });
+
+            // --- SCRIPT PARA TOOLTIPS ---
+            const featureItems = document.querySelectorAll('.feature-list li');
+
+            const closeAllTooltips = () => {
+                document.querySelectorAll('.tooltip-text.show').forEach(tooltip => {
+                    tooltip.classList.remove('show');
+                });
+            };
+
+            document.addEventListener('click', closeAllTooltips);
+
+            featureItems.forEach(item => {
+                const tooltipText = item.querySelector('.tooltip-text');
+                if (tooltipText) {
+                    item.addEventListener('click', function(event) {
+                        event.stopPropagation();
+                        const isVisible = tooltipText.classList.contains('show');
+                        closeAllTooltips();
+                        if (!isVisible) {
+                            tooltipText.classList.add('show');
+                        }
+                    });
+                }
             });
         });
     </script>
