@@ -205,7 +205,7 @@
 
         /* --- ESTILO PARA EL BOTÓN DE LLAMADA A LA ACCIÓN (CTA) --- */
         .cta-button {
-            display: inline-block;
+            display: none;
             background: linear-gradient(135deg, #f7d794, #e6b45a);
             color: #1a0b2e;
             font-size: clamp(1rem, 3vw, 1.1rem);
@@ -255,6 +255,8 @@
             </div>
         </div>
         <!-- ========= FIN: CÓDIGO DE VIDEO WISTIA ========= -->
+
+        <a href="https://vocacionante.com/agendar" class="cta-button" id="boton-reserva">Reservar mi sesión</a>
 
         <p class="final-key">
            Aquí tienes la clave para enfocar tu energía y descubrir el formato ganador que ya está escrito en tu carta.
@@ -325,6 +327,34 @@
                     const separator = baseUrl.includes('?') ? '&' : '?';
                     ctaButton.href = baseUrl + separator + utmParams.toString();
                 }
+            }
+        });
+    </script>
+
+<!-- Script para mostrar el botón en un tiempo específico del video -->
+    <script>
+        window._wq = window._wq || [];
+        _wq.push({
+            // El ID "bc4bpa34wi" corresponde al ID de tu video de Wistia
+            "bc4bpa34wi": function(video) {
+                // Selecciona el botón usando el ID que le hemos añadido
+                const botonReserva = document.getElementById('boton-reserva');
+                
+                // Define el tiempo en segundos (22 minutos * 60 segundos = 1320)
+                const tiempoParaMostrar = 1320; 
+
+                // Escucha el evento 'timechange' que se dispara mientras el video se reproduce
+                video.bind('timechange', function(t) {
+                    // 't' es el tiempo actual de reproducción en segundos
+                    if (t >= tiempoParaMostrar) {
+                        // Si el tiempo es mayor o igual a 22 minutos, muestra el botón
+                        if (botonReserva) {
+                            botonReserva.style.display = 'inline-block';
+                        }
+                        // Opcional: Se desvincula el evento para que no siga comprobando el tiempo
+                        video.unbind('timechange');
+                    }
+                });
             }
         });
     </script>
