@@ -205,7 +205,7 @@
 
         /* --- ESTILO PARA EL BOTÓN DE LLAMADA A LA ACCIÓN (CTA) --- */
         .cta-button {
-            display: inline-block;
+            display: none;
             background: linear-gradient(135deg, #f7d794, #e6b45a);
             color: #1a0b2e;
             font-size: clamp(1rem, 3vw, 1.1rem);
@@ -328,6 +328,27 @@
                     ctaButton.href = baseUrl + separator + utmParams.toString();
                 }
             }
+        });
+    </script>
+
+<!-- Script para mostrar el botón después de 22 minutos -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Selecciona el botón usando su ID
+            const botonReserva = document.getElementById('boton-reserva');
+
+            // Calcula el tiempo en milisegundos
+            // 22 minutos * 60 segundos/minuto * 1000 milisegundos/segundo
+            const tiempoParaMostrar = 22 * 60 * 1000; // Esto equivale a 1,320,000 milisegundos
+
+            // Crea un temporizador que se ejecutará una sola vez después del tiempo especificado
+            setTimeout(function() {
+                // Comprueba si el botón existe antes de intentar mostrarlo
+                if (botonReserva) {
+                    // Muestra el botón cambiando su estilo de 'none' a 'inline-block'
+                    botonReserva.style.display = 'inline-block';
+                }
+            }, tiempoParaMostrar);
         });
     </script>
 
