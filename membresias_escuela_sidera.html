@@ -12,7 +12,6 @@
       gtag('js', new Date());
       gtag('config', 'G-T61K75TJJG');
     </script>
-    
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -25,8 +24,10 @@
     fbq('init', '1010964640707080');
     fbq('track', 'PageView');
     </script>
+    
     <link rel="icon" type="image/png" href="https://storage.mlcdn.com/account_image/876411/UFQdjF6LHwd34CREdYv1UADPxEhIKb8Hjloijz8d.png">
     <style>
+        /* ESTILOS GENERALES */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -39,62 +40,56 @@
             max-width: 1400px; margin: 0 auto; background: #fff; border-radius: 20px;
             padding: 40px 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.08);
         }
-        .main-header { text-align: center; margin-bottom: 40px; }
+        
+        /* HEADER */
+        .main-header { text-align: center; margin-bottom: 30px; }
         .main-header img { max-width: 100%; height: auto; border-radius: 12px; max-height: 250px; }
-        .main-header h2 {
-            font-size: clamp(32px, 5vw, 44px);
-            margin-top: 20px; color: #222; margin-bottom: 10px;
-        }
-        .main-header h3 {
-             font-size: clamp(18px, 3vw, 24px); color: #555; font-weight: 400; margin-bottom: 20px;
-        }
-        .intro-text {
-            max-width: 800px; margin: 0 auto; text-align: center; font-size: 18px; line-height: 1.6; color: #444;
-            background-color: #f0f4f8; padding: 20px; border-radius: 12px;
-        }
+        .main-header h2 { font-size: clamp(28px, 5vw, 40px); margin-top: 20px; color: #222; margin-bottom: 5px; }
+        .main-header h3 { font-size: clamp(16px, 3vw, 20px); color: #666; font-weight: 400; margin-bottom: 15px; }
         
-        /* ESTILOS TOOLTIP MEJORADOS */
-        .tooltip-container { position: relative; display: inline-flex; align-items: center; margin-left: auto; padding-left: 8px;}
-        .tooltip-icon {
-            display: inline-flex; justify-content: center; align-items: center; width: 20px; height: 20px;
-            border-radius: 50%; background-color: #f3f4f6; color: #6b7280; font-weight: bold; font-size: 12px; cursor: help;
-            border: 1px solid #d1d5db; flex-shrink: 0; transition: all 0.2s;
-        }
-        .tooltip-icon:hover { background-color: #667eea; color: #fff; border-color: #667eea; }
-        
-        .tooltip-text {
-            visibility: hidden; width: 260px; background-color: #2d3748; color: #fff; text-align: left; border-radius: 8px; padding: 12px 16px;
-            position: absolute; z-index: 100; top: 50%; right: calc(100% + 15px); transform: translateY(-50%);
-            opacity: 0; transition: opacity 0.3s, visibility 0.3s; font-size: 13px; line-height: 1.5; font-weight: normal;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2); pointer-events: none; /* Evita que el tooltip parpadee si el mouse se mueve */
-        }
-        .tooltip-text strong { display: block; margin-bottom: 6px; color: #a5b4fc; font-size: 14px; }
-        .tooltip-text::after {
-            content: ""; position: absolute; top: 50%; left: 100%; margin-top: -6px; border-width: 6px; border-style: solid; 
-            border-color: transparent transparent transparent #2d3748;
-        }
-        
-        /* Para móviles, ajustar posición tooltip si es necesario */
-        @media (max-width: 768px) {
-            .tooltip-text {
-                right: auto; left: auto; top: 100%; transform: none; margin-top: 10px; right: 0;
-            }
-            .tooltip-text::after {
-                top: auto; bottom: 100%; left: auto; right: 5px; margin-top: 0;
-                border-color: transparent transparent #2d3748 transparent;
-            }
+        .video-intro {
+            background: #f0f4f8; padding: 15px; border-radius: 8px; 
+            max-width: 800px; margin: 0 auto 30px auto; text-align: center; font-size: 15px; color: #444;
         }
 
-        .feature-list li:hover .tooltip-text, .tooltip-text.show {
-            visibility: visible;
-            opacity: 1;
+        /* --- NUEVO DISEÑO: CAJAS DE DECISIÓN --- */
+        .decision-wrapper {
+            display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px;
         }
-        .tooltip-icon:focus { outline: none; box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.5); }
+        
+        .decision-box {
+            flex: 1; min-width: 300px; max-width: 500px;
+            padding: 20px; border-radius: 12px;
+            position: relative; display: flex; flex-direction: column;
+        }
 
-        .plan-cards-container { margin-top: 30px; }
+        /* Caja de Bonus (Pago Directo) */
+        .decision-box.bonus {
+            background: #ecfdf5; border: 2px solid #10b981;
+        }
+        .decision-box.bonus h4 { color: #065f46; font-size: 18px; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;}
+        
+        /* Caja de Ayuda (Llamada) */
+        .decision-box.help {
+            background: #eff6ff; border: 2px solid #667eea;
+        }
+        .decision-box.help h4 { color: #1e40af; font-size: 18px; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;}
+
+        .decision-content { font-size: 14px; line-height: 1.5; color: #374151; margin-bottom: 15px; flex-grow: 1; }
+        
+        .decision-action {
+            background: rgba(255,255,255,0.6); padding: 10px; border-radius: 8px;
+            font-size: 13px; font-weight: 600; text-align: center;
+        }
+        .decision-box.bonus .decision-action { color: #065f46; border: 1px dashed #10b981; }
+        .decision-box.help .decision-action { color: #1e40af; border: 1px dashed #667eea; }
+
+        /* --- FIN NUEVO DISEÑO --- */
+
+        /* ESTILOS DE TARJETAS (Mismos que antes) */
+        .plan-cards-container { margin-top: 20px; }
         .plan-cards { display: grid; gap: 20px; margin-bottom: 30px; }
-        @media (min-width: 768px) { .plan-cards { grid-template-columns: 1fr; } }
-        @media (min-width: 1200px) { .plan-cards { grid-template-columns: 1fr; } }
+        @media (min-width: 900px) { .plan-cards { grid-template-columns: 1fr; } } /* 1 columna siempre para leer bien */
 
         .plan-card {
             background: #fff; border: 2px solid #e5e7eb; border-radius: 16px;
@@ -109,105 +104,131 @@
         .card-header-clickable { cursor: pointer; padding: 25px; transition: background-color 0.3s; }
         .plan-card:not(.open) .card-header-clickable:hover { background-color: #f9fafb; }
         .card-header-content { text-align: center; }
-        .card-header-content h3 { font-size: clamp(22px, 4vw, 28px); margin-bottom: 10px; color: #222; }
+        .card-header-content h3 { font-size: 26px; margin-bottom: 10px; color: #222; }
         
         .card-subtitle {
-            color: #555; font-size: clamp(15px, 2.4vw, 17px);
-            margin-bottom: 20px; line-height: 1.6; text-align: left; max-width: 800px; margin-left: auto; margin-right: auto;
+            color: #555; font-size: 16px; margin-bottom: 20px; line-height: 1.6; text-align: left; max-width: 800px; margin-left: auto; margin-right: auto;
         }
         .card-subtitle ul { list-style: none; padding: 0; }
         .card-subtitle li { margin-bottom: 6px; padding-left: 20px; position: relative; }
         .card-subtitle li::before { content: "•"; color: #667eea; font-weight: bold; position: absolute; left: 0; }
-        
+
         .card-collapsible-content {
-            max-height: 0; overflow: hidden;
-            transition: max-height 0.7s ease-in-out, padding 0.5s ease;
-            padding: 0 20px;
+            max-height: 0; overflow: hidden; transition: max-height 0.7s ease-in-out, padding 0.5s ease; padding: 0 20px;
         }
-        .plan-card.open .card-collapsible-content {
-             max-height: 4000px;
-             padding: 0 20px 20px;
-        }
+        .plan-card.open .card-collapsible-content { max-height: 4000px; padding: 0 20px 20px; }
 
         .card-prices { 
             margin-top: 15px; border-top: 1px solid #e5e7eb; padding-top: 20px; text-align: center; 
             display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;
         }
         .price-option { 
-            flex: 1; min-width: 250px; padding: 15px; background: #f8fafc; border-radius: 10px; border: 1px solid #e2e8f0;
+            flex: 1; min-width: 240px; padding: 15px; background: #f8fafc; border-radius: 10px; border: 1px solid #e2e8f0;
         }
-        .price-label { font-size: 13px; color: #666; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; }
+        .price-label { font-size: 13px; color: #666; margin-bottom: 5px; text-transform: uppercase; font-weight: 600; }
         .price-value { font-size: 24px; font-weight: 700; color: #333; }
         .price-value small { font-size: 14px; color: #666; font-weight: normal; }
-        .permanencia-info { font-size: 12px; font-weight: normal; color: #888; margin-top: 4px; }
-
-        .card-body { padding-top: 20px; }
-        .feature-section { margin-bottom: 20px; }
-
+        
+        .feature-section { margin-bottom: 20px; margin-top: 20px; }
         .cumulative-title-wrapper { text-align: center; margin-bottom: 25px; }
         .cumulative-title {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white; padding: 8px 16px; border-radius: 50px;
-            font-size: clamp(13px, 2.4vw, 15px); font-weight: 600;
+            display: inline-block; background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 8px 16px; border-radius: 50px; font-weight: 600; font-size: 14px;
         }
-
         .feature-section-title {
-            font-size: clamp(12px, 2.2vw, 14px); font-weight: 700; color: #3163bd;
-            margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px;
+            font-size: 13px; font-weight: 700; color: #3163bd; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px;
         }
         
         .feature-list { list-style: none; margin: 0; padding: 0; }
         .feature-list li {
-            padding: 10px 0; font-size: clamp(14px, 2.5vw, 16px);
-            display: flex; align-items: center; border-bottom: 1px solid #f3f4f6;
-            cursor: help;
+            padding: 10px 0; font-size: 15px; display: flex; align-items: center; border-bottom: 1px solid #f3f4f6; cursor: help;
         }
         .feature-list li:last-child { border-bottom: none; }
         .feature-text { flex-grow: 1; }
         .feature-icon { margin-right: 12px; flex-shrink: 0; font-size: 18px; }
         .feature-list .included { color: #10b981; }
         .feature-list .not-included { color: #ef4444; opacity: 0.7; }
-        
-        /* BOTONES */
-        .card-footer { 
-            padding: 0; margin-top: auto; 
-            display: flex; gap: 10px; flex-wrap: wrap; 
+
+        /* TOOLTIPS */
+        .tooltip-container { position: relative; display: inline-flex; margin-left: auto; padding-left: 8px;}
+        .tooltip-icon {
+            display: inline-flex; justify-content: center; align-items: center; width: 20px; height: 20px;
+            border-radius: 50%; background-color: #f3f4f6; color: #6b7280; font-weight: bold; font-size: 12px; cursor: help;
+            border: 1px solid #d1d5db; transition: all 0.2s;
         }
+        .tooltip-icon:hover { background-color: #667eea; color: white; border-color: #667eea; }
+        .tooltip-text {
+            visibility: hidden; width: 260px; background-color: #2d3748; color: #fff; text-align: left; border-radius: 8px; padding: 12px;
+            position: absolute; z-index: 100; top: 50%; right: calc(100% + 15px); transform: translateY(-50%);
+            opacity: 0; transition: opacity 0.3s, visibility 0.3s; font-size: 13px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); pointer-events: none;
+        }
+        .tooltip-text strong { display: block; margin-bottom: 5px; color: #a5b4fc; }
+        .tooltip-text::after {
+            content: ""; position: absolute; top: 50%; left: 100%; margin-top: -6px; border-width: 6px; border-style: solid; 
+            border-color: transparent transparent transparent #2d3748;
+        }
+        @media (max-width: 768px) {
+            .tooltip-text { right: auto; left: auto; top: 100%; transform: none; margin-top: 10px; right: 0; }
+            .tooltip-text::after { top: auto; bottom: 100%; left: auto; right: 10px; margin-top: 0; border-color: transparent transparent #2d3748 transparent; }
+        }
+        .feature-list li:hover .tooltip-text, .tooltip-text.show { visibility: visible; opacity: 1; }
+
+        /* BOTONES */
+        .card-footer { padding: 0; margin-top: auto; display: flex; gap: 10px; flex-wrap: wrap; }
         .btn-cta {
-            flex: 1; min-width: 140px;
-            padding: 14px; border: none; border-radius: 10px;
-            font-size: clamp(14px, 2.5vw, 16px); font-weight: 600; cursor: pointer;
-            transition: all 0.3s ease; text-decoration: none; text-align: center;
+            flex: 1; min-width: 140px; padding: 14px; border: none; border-radius: 10px;
+            font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; text-decoration: none; text-align: center;
         }
         .btn-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
         .btn-primary { background: linear-gradient(135deg, #667eea, #764ba2); color: white; }
         .btn-secondary { background: #fff; border: 2px solid #667eea; color: #667eea; }
         .btn-secondary:hover { background: #f0f4ff; }
-        .btn-expand { display: inline-block; width: auto; padding: 10px 30px; margin-top: 15px; font-size: clamp(13px, 2.2vw, 14px); background: #333; color: white; }
+        .btn-expand { display: inline-block; width: auto; padding: 10px 30px; margin-top: 15px; font-size: 14px; background: #333; color: white; }
         .plan-card.open .btn-expand { display: none; }
     </style>
 </head>
 <body>
-<section class="pricing" aria-labelledby="pricing-title">
+<section class="pricing">
     <div class="main-header">
         <img src="https://storage.mlcdn.com/account_image/876411/zbChJ3gbpMAhlpfWcsvtJcuTCyhy6V0dgjA87dCm.png" alt="Escuela Sidera Logo">
-        <h2 id="pricing-title">Escuela Sidera</h2>
+        <h2>Escuela Sidera</h2>
         <h3>La escuela de astrología para emprendedores de Vocacionante.com</h3>
         
-        <div class="intro-text">
-            <p><strong>Los 4 niveles de asesoría de la Escuela</strong></p>
-            <p style="font-size: 15px; margin-top: 10px;">Mira este video sobre porqué ya no formamos a nadie y porqué apostamos por el asesoramiento astrológico a través de membresías.</p>
+        <div class="video-intro">
+            <strong>Los 4 niveles de asesoría de la Escuela</strong><br>
+            Mira este video sobre porqué ya no formamos a nadie y porqué apostamos por el asesoramiento astrológico a través de membresías.
         </div>
     </div>
 
+    <div class="decision-wrapper">
+        
+        <div class="decision-box bonus">
+            <h4>⚡ Opción 1: Pago Directo</h4>
+            <div class="decision-content">
+                Si pagas aquí directamente, accederás a nuestra asesoría automáticamente y <strong>te regalamos una sesión individual con Raquel</strong> para tratar a fondo tu proyecto en base a tu carta natal.
+            </div>
+            <div class="decision-action">
+                Para esta opción: Haz clic en el botón <br> "INSCRIBIRME" de tu nivel
+            </div>
+        </div>
+
+        <div class="decision-box help">
+            <h4>📞 Opción 2: ¿Tienes dudas?</h4>
+            <div class="decision-content">
+                Si necesitas saber si esta membresía es para ti, te ofrecemos <strong>media hora gratuita conmigo o con Miquel</strong> para resolver dudas antes de entrar.
+            </div>
+            <div class="decision-action">
+                Para esta opción: Haz clic en el botón <br> "VER TEMARIO" de tu nivel
+            </div>
+        </div>
+
+    </div>
     <div class="plan-cards-container">
         <div class="plan-cards">
             
             <div class="plan-card cyclus">
                 <div class="card-header-clickable">
                     <div class="card-header-content">
-                        <h3>Membresía Nivel 1: Cyclus</h3>
+                        <h3>Nivel 1: Cyclus</h3>
                         <div class="card-subtitle">
                             <strong>Te asesoramos en:</strong>
                             <ul>
@@ -232,23 +253,23 @@
                     <div class="card-body">
                         <div class="feature-section"><div class="feature-section-title">Conéctate con tus propios ciclos</div>
                             <ul class="feature-list">
-                                <li><span class="feature-icon included">✓</span><span class="feature-text">Clases de Conexión Astral</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Clases en vivo</strong>Participa en clases para vivir la energía de la Luna y el Sol, integrando la astrología en tu cuerpo.</div></div></li>
-                                <li><span class="feature-icon included">✓</span><span class="feature-text">Guía de tránsitos del año mes a mes</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Tu brújula anual</strong>Acceso a preguntar y vivir todos los tránsitos del año según tu carta natal.</div></div></li>
-                                <li><span class="feature-icon included">✓</span><span class="feature-text">Aprende a aplicar los ritos de paso</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Rituales significativos</strong>Aprende a guiar ritos de paso para ceremonias de nacimiento, boda, duelo, etc.</div></div></li>
-                                <li><span class="feature-icon included">✓</span><span class="feature-text">Aprende a guiar círculos</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Facilitación de grupos</strong>Recibe el manual y las guías para facilitar tus propios círculos y ceremonias.</div></div></li>
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Clases de Conexión Astral</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Clases en vivo</strong>Participa en clases para vivir la energía de la Luna y el Sol.</div></div></li>
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Guía de tránsitos del año mes a mes</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Tu brújula anual</strong>Acceso a preguntar y vivir todos los tránsitos del año.</div></div></li>
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Aprende a aplicar los ritos de paso</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Rituales</strong>Aprende a guiar ritos de paso para ceremonias de nacimiento, boda, duelo, etc.</div></div></li>
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Aprende a guiar círculos</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Facilitación</strong>Recibe el manual y las guías para facilitar tus propios círculos.</div></div></li>
                             </ul>
                         </div>
                          <div class="feature-section"><div class="feature-section-title">Comunidad y Soporte</div>
                             <ul class="feature-list">
-                                <li><span class="feature-icon included">✓</span><span class="feature-text">Comunidad de Alumnos</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Tu tribu</strong>Espacio central de interacción para compartir procesos y aprendizajes.</div></div></li>
-                                <li><span class="feature-icon included">✓</span><span class="feature-text">Aula Técnica</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Herramientas digitales</strong>Área de formación complementaria sobre herramientas básicas para tu proyecto.</div></div></li>
-                                <li><span class="feature-icon included">✓</span><span class="feature-text">Soporte Ilimitado</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Siempre acompañados</strong>El equipo responde sin límite de consultas.</div></div></li>
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Comunidad de Alumnos</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Tu tribu</strong>Espacio central de interacción para compartir procesos.</div></div></li>
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Aula Técnica</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Herramientas</strong>Área de formación complementaria sobre herramientas digitales.</div></div></li>
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Soporte Ilimitado</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Soporte</strong>El equipo responde sin límite de consultas.</div></div></li>
                             </ul>
                         </div>
                         <div class="feature-section"><div class="feature-section-title">No incluye</div>
                             <ul class="feature-list">
-                                <li><span class="feature-icon not-included">×</span><span class="feature-text">Alineación de tu proyecto con tu carta natal</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>¿Lo necesitas?</strong>Esta profundidad de trabajo astrológico comienza en el Nivel 2: Conecta con tu Vocación.</div></div></li>
-                                <li><span class="feature-icon not-included">×</span><span class="feature-text">Formación para ser guía profesional</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Enfoque profesional</strong>Si buscas formarte para atender pacientes, tu nivel ideal es el Nivel 3: Guía Vocacional.</div></div></li>
+                                <li><span class="feature-icon not-included">×</span><span class="feature-text">Alineación de proyecto con carta natal</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Disponible en el Nivel 2: Conecta con tu Vocación.</div></div></li>
+                                <li><span class="feature-icon not-included">×</span><span class="feature-text">Formación para ser guía profesional</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Disponible en el Nivel 3: Guía Vocacional.</div></div></li>
                             </ul>
                         </div>
                     </div>
@@ -292,20 +313,20 @@
                         </div>
                         <div class="feature-section"><div class="feature-section-title">Alineamiento profundo de tu proyecto</div>
                             <ul class="feature-list">
-                                <li><span class="feature-icon included">✓</span><span class="feature-text">Interpreta tu Carta Natal completa en base a tu proyecto</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>De cero a la maestría</strong>Aprende a leer todos los elementos de tu carta para descubrir tus dones y alinearlos con tu proyecto.</div></div></li>
-                                <li><span class="feature-icon included">✓</span><span class="feature-text">Trasciende el nudo de tu propia carta</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Desbloqueo personal</strong>Conoce el nudo de tu carta y trasciéndelo con herramientas terapéuticas y artísticas.</div></div></li>
-                                <li><span class="feature-icon included">✓</span><span class="feature-text">Tu Revolución Solar y Progresión Secundaria</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Ciclos Personales</strong>Conoce qué te toca hacer cada año interpretando tus propios ciclos vitales.</div></div></li>
-                                <li><span class="feature-icon included">✓</span><span class="feature-text">Clases semanales de preguntas y respuestas</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Mentoría grupal</strong>Clases en directo para preguntar todo lo que necesites sobre tu carta o la de otros.</div></div></li>
-                                <li><span class="feature-icon included">✓</span><span class="feature-text">Bonus: Paternidad y Maternidad</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Astrología Familiar</strong>Comprende la relación entre tu carta y las de tu familia para potenciar talentos.</div></div></li>
-                                <li><span class="feature-icon included">✓</span><span class="feature-text">Tareas con Feedback Personalizado</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Corrección individual</strong>Revisamos tus tareas para asegurar que integras cada símbolo de tu carta.</div></div></li>
-                                <li><span class="feature-icon included">✓</span><span class="feature-text">Bonus: Arteterapia, MTC, Flores de Bach, Tarot</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Kit de Herramientas</strong>Recursos prácticos para equilibrar tu carta en el día a día.</div></div></li>
-                                <li><span class="feature-icon included">✓</span><span class="feature-text">Crea tu Templo Astrológico</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Espacio Sagrado</strong>Construye un espacio físico y simbólico para conectar con la energía de los planetas.</div></div></li>
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Interpreta tu Carta Natal completa en base a tu proyecto</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Maestría</strong>Aprende a leer todos los elementos de tu carta para descubrir tus dones.</div></div></li>
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Trasciende el nudo de tu propia carta</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Desbloqueo</strong>Conoce el nudo de tu carta y trasciéndelo con herramientas terapéuticas.</div></div></li>
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Tu Revolución Solar y Progresión Secundaria</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Ciclos</strong>Conoce qué te toca hacer cada año interpretando tus ciclos.</div></div></li>
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Clases semanales de preguntas y respuestas</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Mentoría</strong>Clases en directo para preguntar todo lo que necesites.</div></div></li>
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Bonus: Paternidad y Maternidad</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Familia</strong>Comprende la relación entre tu carta y las de tu familia.</div></div></li>
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Tareas con Feedback Personalizado</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Corrección</strong>Revisamos tus tareas para asegurar que integras cada símbolo.</div></div></li>
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Bonus: Arteterapia, MTC, Flores de Bach, Tarot</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Kit Práctico</strong>Recursos prácticos para equilibrar tu carta.</div></div></li>
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Crea tu Templo Astrológico</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Espacio Sagrado</strong>Construye un espacio para conectar con la energía de los planetas.</div></div></li>
                             </ul>
                         </div>
                         <div class="feature-section"><div class="feature-section-title">No incluye</div>
                             <ul class="feature-list">
-                               <li><span class="feature-icon not-included">×</span><span class="feature-text">Mejorar tu forma de atender pacientes ni crear tu propio método</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Próximo paso</strong>La creación de metodología propia y atención clínica se trabaja en el Nivel 3: Guía Vocacional.</div></div></li>
-                               <li><span class="feature-icon not-included">×</span><span class="feature-text">Hacer crecer tu proyecto de forma estructurada</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Escalabilidad</strong>La estructura de negocio para crecer se desarrolla en los niveles superiores.</div></div></li>
+                               <li><span class="feature-icon not-included">×</span><span class="feature-text">Mejorar tu forma de atender pacientes</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Se trabaja en el Nivel 3: Guía Vocacional.</div></div></li>
+                               <li><span class="feature-icon not-included">×</span><span class="feature-text">Hacer crecer tu proyecto de forma estructurada</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Se desarrolla en los niveles superiores.</div></div></li>
                             </ul>
                         </div>
                     </div>
@@ -350,21 +371,21 @@
                         </div>
                         <div class="feature-section"><div class="feature-section-title">Crea tu método único</div>
                             <ul class="feature-list">
-                                <li><span class="feature-icon included">✓</span><span class="feature-text">Asesoramiento sobre cada paciente y sobre tu método</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Supervisión clínica</strong>Revisión de tus casos reales para que ganes seguridad en consulta.</div></div></li>
-                                <li><span class="feature-icon included">✓</span><span class="feature-text">El I Ching en consulta</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Sabiduría ancestral</strong>Aprende a integrar el I Ching para dar profundidad extra a tus lecturas.</div></div></li>
-                                <li><span class="feature-icon included">✓</span><span class="feature-text">Paso a paso para tu proyecto</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Hoja de Ruta</strong>Claridad total sobre cuál es el siguiente paso para visibilizar lo que haces.</div></div></li>
-                                <li><span class="feature-icon included">✓</span><span class="feature-text">Creación de tu oferta ideal</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Diseño de producto</strong>Define qué quieres ofrecer: sesiones, talleres, libros o formaciones.</div></div></li>
-                                <li><span class="feature-icon included">✓</span><span class="feature-text">Mastermind grupal de terapeutas</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Sinergias</strong>Encuentros para compartir estrategias y colaborar con otros terapeutas.</div></div></li>
-                                <li><span class="feature-icon included">✓</span><span class="feature-text">Bonus: Cómo hacer tu newsletter</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Comunicación escrita</strong>Aprende a escribir para conectar y hacer llegar tus conocimientos.</div></div></li>
-                                <li><span class="feature-icon included">✓</span><span class="feature-text">Diagnosticar profesionalmente</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Seguridad técnica</strong>Técnica infalible para asegurar que estás apoyando realmente a tu paciente.</div></div></li>
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Asesoramiento sobre cada paciente y método</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Supervisión</strong>Revisión de tus casos reales para que ganes seguridad.</div></div></li>
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">El I Ching en consulta</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Sabiduría</strong>Aprende a integrar el I Ching en tus lecturas.</div></div></li>
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Paso a paso para tu proyecto</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Hoja de Ruta</strong>Claridad total sobre el siguiente paso para visibilizarte.</div></div></li>
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Creación de tu oferta ideal</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Diseño</strong>Define qué quieres ofrecer: sesiones, talleres, libros...</div></div></li>
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Mastermind grupal de terapeutas</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Sinergias</strong>Encuentros para compartir estrategias y colaborar.</div></div></li>
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Bonus: Cómo hacer tu newsletter</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Comunicación</strong>Aprende a escribir para conectar y compartir conocimientos.</div></div></li>
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Diagnosticar profesionalmente</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Técnica infalible</strong>Para asegurar que estás apoyando realmente a tu paciente.</div></div></li>
                                 <li><span class="feature-icon included">✓</span><span class="feature-text">Acompañamiento a crear tu web y RRSS</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Mensaje único</strong>Te acompañamos a definir tu voz y tu imagen digital.</div></div></li>
-                                <li><span class="feature-icon included">✓</span><span class="feature-text">Apoyo ilimitado a tu emprendimiento</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Soporte total</strong>Resolvemos todas las dudas sobre primeros pasos, público y asociaciones.</div></div></li>
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Apoyo ilimitado a tu emprendimiento</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Soporte</strong>Resolvemos dudas sobre primeros pasos, público y asociaciones.</div></div></li>
                             </ul>
                         </div>
                          <div class="feature-section"><div class="feature-section-title">No incluye</div>
                             <ul class="feature-list">
-                                <li><span class="feature-icon not-included">×</span><span class="feature-text">Sistema de venta automatizado</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Automatización</strong>Si buscas ventas en piloto automático, necesitas el Nivel 4: Lidera tu Tribu.</div></div></li>
-                                <li><span class="feature-icon not-included">×</span><span class="feature-text">Creación de tu formación o acompañamiento con alojamiento de videos</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Escuela Online</strong>La infraestructura técnica para alojar cursos se enseña en el Nivel 4.</div></div></li>
+                                <li><span class="feature-icon not-included">×</span><span class="feature-text">Sistema de venta automatizado</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Necesitas el Nivel 4: Lidera tu Tribu.</div></div></li>
+                                <li><span class="feature-icon not-included">×</span><span class="feature-text">Infraestructura de escuela online</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text">Se enseña en el Nivel 4.</div></div></li>
                             </ul>
                         </div>
                     </div>
@@ -407,12 +428,12 @@
                         </div>
                         <div class="feature-section"><div class="feature-section-title">Crea tu proyecto digital sostenible</div>
                             <ul class="feature-list">
-                                <li><span class="feature-icon included">✓</span><span class="feature-text">Crea tu Mentoría Evergreen</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Ventas estables</strong>Empaqueta tu conocimiento en una oferta que no dependa de lanzamientos.</div></div></li>
-                                <li><span class="feature-icon included">✓</span><span class="feature-text">Tu sistema de venta según tu carta natal</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Marketing auténtico</strong>Diseñamos una estrategia automatizada alineada con tu energía.</div></div></li>
-                                <li><span class="feature-icon included">✓</span><span class="feature-text">Producción de contenidos auténticos</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Calidad profesional</strong>Secretos para grabar y producir material que te posicione como experto.</div></div></li>
-                                <li><span class="feature-icon included">✓</span><span class="feature-text">IA para acelerar procesos</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Eficiencia</strong>Usa inteligencia artificial para crear contenido y automatizar tareas.</div></div></li>
-                                <li><span class="feature-icon included">✓</span><span class="feature-text">Cómo hacer anuncios que de verdad funcionen para tu web y RRSS</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Publicidad Efectiva</strong>Aprende a invertir en Ads para atraer tráfico cualificado a tu oferta.</div></div></li>
-                                <li><span class="feature-icon included">✓</span><span class="feature-text">Apoyo ilimitado a tu emprendimiento</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Socio estratégico</strong>Estamos contigo para resolver cualquier bloqueo técnico o estratégico.</div></div></li>
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Crea tu Mentoría Evergreen</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Evergreen</strong>Empaqueta tu conocimiento en una oferta que no dependa de lanzamientos.</div></div></li>
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Tu sistema de venta según tu carta natal</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Autenticidad</strong>Estrategia automatizada alineada con tu energía.</div></div></li>
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Producción de contenidos auténticos</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Calidad</strong>Secretos para producir material que te posicione como experto.</div></div></li>
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">IA para acelerar procesos</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Eficiencia</strong>Usa IA para crear contenido y automatizar tareas.</div></div></li>
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Anuncios efectivos (Ads)</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Publicidad</strong>Aprende a invertir en Ads para atraer tráfico cualificado.</div></div></li>
+                                <li><span class="feature-icon included">✓</span><span class="feature-text">Apoyo ilimitado a tu emprendimiento</span><div class="tooltip-container"><span class="tooltip-icon" tabindex="0">?</span><div class="tooltip-text"><strong>Socio estratégico</strong>Estamos contigo para resolver cualquier bloqueo.</div></div></li>
                             </ul>
                         </div>
                     </div>
@@ -428,45 +449,29 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // --- SCRIPT PARA ACORDEÓN DE TARJETAS ---
-            const planCards = document.querySelectorAll('.plan-card');
+            // Acordeón
             const headers = document.querySelectorAll('.card-header-clickable');
-
+            const planCards = document.querySelectorAll('.plan-card');
             headers.forEach(header => {
-                header.addEventListener('click', function(event) {
-                    const currentCard = this.parentElement;
-                    const isOpen = currentCard.classList.contains('open');
-
-                    planCards.forEach(card => card.classList.remove('open'));
-                    if (!isOpen) {
-                        currentCard.classList.add('open');
-                    }
+                header.addEventListener('click', function() {
+                    const card = this.parentElement;
+                    const isOpen = card.classList.contains('open');
+                    planCards.forEach(c => c.classList.remove('open'));
+                    if(!isOpen) card.classList.add('open');
                 });
             });
 
-            // --- SCRIPT PARA TOOLTIPS ---
-            const featureItems = document.querySelectorAll('.feature-list li');
-
-            const closeAllTooltips = () => {
-                document.querySelectorAll('.tooltip-text.show').forEach(tooltip => {
-                    tooltip.classList.remove('show');
+            // Tooltips
+            const closeTooltips = () => document.querySelectorAll('.tooltip-text.show').forEach(t => t.classList.remove('show'));
+            document.addEventListener('click', closeTooltips);
+            document.querySelectorAll('.tooltip-icon').forEach(icon => {
+                icon.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const tooltip = this.nextElementSibling;
+                    const isShow = tooltip.classList.contains('show');
+                    closeTooltips();
+                    if(!isShow) tooltip.classList.add('show');
                 });
-            };
-
-            document.addEventListener('click', closeAllTooltips);
-
-            featureItems.forEach(item => {
-                const tooltipText = item.querySelector('.tooltip-text');
-                if (tooltipText) {
-                    item.addEventListener('click', function(event) {
-                        event.stopPropagation();
-                        const isVisible = tooltipText.classList.contains('show');
-                        closeAllTooltips();
-                        if (!isVisible) {
-                            tooltipText.classList.add('show');
-                        }
-                    });
-                }
             });
         });
     </script>
