@@ -331,15 +331,15 @@
         });
     </script>
 
-<!-- Script para mostrar el botón después de 22 minutos -->
+<!-- Script para mostrar el botón después de 11 minutos y 30 segundos -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Selecciona el botón usando su ID
             const botonReserva = document.getElementById('boton-reserva');
 
             // Calcula el tiempo en milisegundos
-            // 22 minutos * 60 segundos/minuto * 1000 milisegundos/segundo
-            const tiempoParaMostrar = 22 * 60 * 1000; // Esto equivale a 1,320,000 milisegundos
+            // (11 min * 60 seg) + 30 seg = 690 segundos * 1000 = 690,000 ms
+            const tiempoParaMostrar = 690000; 
 
             // Crea un temporizador que se ejecutará una sola vez después del tiempo especificado
             setTimeout(function() {
